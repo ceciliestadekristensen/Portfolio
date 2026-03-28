@@ -1,220 +1,809 @@
 <!DOCTYPE html>
-<html lang="da">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cecilie Städe Kristensen | Portfolio</title>
+  <meta
+    name="description"
+    content="Portfolio of Cecilie Städe Kristensen - Master's student in Digitalisation and Application Development."
+  />
   <style>
+    :root {
+      --bg: #070b14;
+      --bg-soft: #0f172a;
+      --card: rgba(15, 23, 42, 0.78);
+      --card-border: rgba(148, 163, 184, 0.14);
+      --text: #e5eefb;
+      --muted: #9fb0ca;
+      --accent: #7c3aed;
+      --accent-2: #38bdf8;
+      --accent-3: #22c55e;
+      --shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+      --radius: 20px;
+      --max-width: 1180px;
+    }
+
     * {
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f7fb;
-      color: #1f2937;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(124, 58, 237, 0.18), transparent 30%),
+        radial-gradient(circle at top right, rgba(56, 189, 248, 0.15), transparent 30%),
+        linear-gradient(180deg, #05070d 0%, #0a1020 100%);
+      color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    header {
-      background: linear-gradient(135deg, #1e3a8a, #2563eb);
-      color: white;
-      padding: 60px 20px;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+      background-image:
+        radial-gradient(2px 2px at 10% 20%, #ffffff, transparent),
+        radial-gradient(2px 2px at 20% 80%, #ffffff, transparent),
+        radial-gradient(2px 2px at 35% 35%, #ffffff, transparent),
+        radial-gradient(1.5px 1.5px at 50% 15%, #ffffff, transparent),
+        radial-gradient(2px 2px at 65% 65%, #ffffff, transparent),
+        radial-gradient(1.5px 1.5px at 80% 25%, #ffffff, transparent),
+        radial-gradient(2px 2px at 90% 75%, #ffffff, transparent),
+        radial-gradient(1.5px 1.5px at 70% 40%, #ffffff, transparent),
+        radial-gradient(2px 2px at 15% 55%, #ffffff, transparent),
+        radial-gradient(1.5px 1.5px at 45% 90%, #ffffff, transparent);
+      animation: twinkle 7s linear infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.35; }
+      50% { opacity: 0.6; }
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 2rem));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(5, 9, 18, 0.72);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: #c4b5fd;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      min-height: 90vh;
+      display: grid;
+      place-items: center;
+      padding: 5rem 0 3rem;
+    }
+
+    .hero-box {
       text-align: center;
+      max-width: 900px;
     }
 
-    header h1 {
-      margin: 0 0 10px;
-      font-size: 2.5rem;
+    .eyebrow {
+      display: inline-block;
+      padding: 0.35rem 0.8rem;
+      border: 1px solid rgba(124, 58, 237, 0.35);
+      border-radius: 999px;
+      color: #d8c8ff;
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+      background: rgba(124, 58, 237, 0.12);
     }
 
-    header p {
+    h1 {
       margin: 0;
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin-inline: auto;
+      font-size: clamp(2.8rem, 7vw, 5.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      text-shadow: 0 0 28px rgba(124, 58, 237, 0.25);
     }
 
-    main {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
+    .hero-gradient {
+      background: linear-gradient(90deg, #f8fbff, #b9cbff, #d8c8ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      margin: 1rem auto 0;
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      color: #b9c9e7;
+      max-width: 760px;
+    }
+
+    .hero-text {
+      margin: 1.5rem auto 0;
+      color: var(--muted);
+      max-width: 760px;
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.95rem 1.35rem;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--accent), #5b7cff);
+      color: white;
+      box-shadow: 0 10px 25px rgba(91, 124, 255, 0.25);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.03);
+      border-color: rgba(148, 163, 184, 0.22);
+      color: var(--text);
+    }
+
+    .quick-info {
+      margin-top: 2rem;
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .chip {
+      padding: 0.6rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.76);
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      color: #c5d1e7;
+      font-size: 0.94rem;
     }
 
     section {
-      margin-bottom: 50px;
+      padding: 3rem 0;
     }
 
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #111827;
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin: 0 0 0.7rem;
+      letter-spacing: -0.03em;
     }
 
-    .about, .contact {
-      background: white;
-      padding: 25px;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    .section-intro {
+      color: var(--muted);
+      max-width: 760px;
+      margin-bottom: 2rem;
     }
 
-    .projects {
+    .glass {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .about-box {
+      padding: 2rem;
+    }
+
+    .about-box p {
+      margin: 0 0 1rem;
+      color: #d0dbee;
+      font-size: 1.04rem;
+    }
+
+    .stats {
+      margin-top: 1.5rem;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    .stat {
+      padding: 1.2rem;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.6rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.2rem;
     }
 
     .project-card {
-      background: white;
-      padding: 22px;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      padding: 1.35rem;
+      position: relative;
+      overflow: hidden;
     }
 
-    .project-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -20% -60% auto;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.18), transparent 70%);
+      pointer-events: none;
+    }
+
+    .project-type {
+      color: #c9b8ff;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
     .project-card h3 {
+      margin: 0.55rem 0 0.7rem;
+      font-size: 1.35rem;
+    }
+
+    .project-card p {
+      color: #cfdbef;
+      margin: 0 0 0.9rem;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin: 1rem 0 1.2rem;
+    }
+
+    .tag {
+      font-size: 0.86rem;
+      padding: 0.42rem 0.72rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      color: #c6d3ea;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .text-link {
+      font-weight: 700;
+      color: #c4d8ff;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-card {
+      padding: 1.2rem;
+    }
+
+    .skill-card h3 {
       margin-top: 0;
-      margin-bottom: 10px;
-      color: #111827;
+      margin-bottom: 0.8rem;
     }
 
-    .tech {
+    .bar-group {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .bar-label {
+      display: flex;
+      justify-content: space-between;
       font-size: 0.95rem;
-      color: #4b5563;
-      margin-bottom: 12px;
+      color: #d6e0f2;
+      margin-bottom: 0.3rem;
     }
 
-    .role {
-      font-size: 0.95rem;
-      margin-bottom: 15px;
+    .bar {
+      width: 100%;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      overflow: hidden;
     }
 
-    a.button {
-      display: inline-block;
-      padding: 10px 16px;
-      background: #2563eb;
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
     }
 
-    a.button:hover {
-      background: #1d4ed8;
+    .results-box,
+    .contact-box {
+      padding: 1.5rem;
     }
 
-    .links a {
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: bold;
+    .results-list {
+      display: grid;
+      gap: 0.9rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
     }
 
-    .links a:hover {
-      text-decoration: underline;
+    .results-list li {
+      padding: 1rem 1.1rem;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(148, 163, 184, 0.1);
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .result-grade {
+      color: #a7f3d0;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .contact-item {
+      padding: 1rem;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .contact-item span {
+      display: block;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+      font-size: 0.92rem;
     }
 
     footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
       text-align: center;
-      padding: 30px 20px;
-      color: #6b7280;
       font-size: 0.95rem;
+    }
+
+    @media (max-width: 780px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 0.8rem;
+      }
+
+      .results-list li {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Cecilie Städe Kristensen</h1>
-    <p>
-      Velkommen til mit portfolio. Her viser jeg projekter, jeg har arbejdet på
-      under min uddannelse, både egne projekter og gruppeprojekter.
-    </p>
+  <div class="stars"></div>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="logo">&lt;Cecilie /&gt;</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#tech">Tech Stack</a>
+        <a href="#results">Results</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="container hero-box">
+      <div class="eyebrow">Portfolio</div>
+      <h1><span class="hero-gradient">Cecilie Städe Kristensen</span></h1>
+      <p class="hero-subtitle">
+        Master’s student in Digitalisation and Application Development
+      </p>
+      <p class="hero-text">
+        I combine software development, interaction design and data-driven thinking.
+        My work spans web development, Java, Python, machine learning, databases,
+        prototyping and human-centered AI.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projects">View Projects</a>
+        <a class="btn btn-secondary" href="#contact">Get in Touch</a>
+      </div>
+
+      <div class="quick-info">
+        <div class="chip">Aalborg, Denmark</div>
+        <div class="chip">Graduating June 2026</div>
+        <div class="chip">Bachelor’s degree in Art and Technology</div>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <section>
-      <h2>Om mig</h2>
-      <div class="about">
+  <main class="container">
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-intro">
+        A technical and creative profile with experience across software development,
+        interactive systems, machine learning and design.
+      </p>
+
+      <div class="glass about-box">
         <p>
-          Jeg er studerende og interesserer mig for softwareudvikling,
-          frontend, backend og samarbejde om projekter. På denne side har jeg samlet
-          nogle af de projekter, jeg har været med til at udvikle.
+          I am currently completing my master’s degree in Digitalisation and
+          Application Development and will graduate in June 2026. I also hold a
+          bachelor’s degree in Art and Technology.
         </p>
+        <p>
+          Through my studies, I have worked with both individual and group-based
+          software projects involving web development, Java, Python, SQL, Android
+          development, machine learning, prototyping and interaction design.
+        </p>
+        <p>
+          I am especially interested in building digital solutions that combine
+          functionality, usability and intelligent behavior in a way that is clear
+          and useful for real users.
+        </p>
+
+        <div class="stats">
+          <div class="stat">
+            <strong>5</strong>
+            Featured projects
+          </div>
+          <div class="stat">
+            <strong>10 / 12</strong>
+            Strong selected results
+          </div>
+          <div class="stat">
+            <strong>Java • Python • SQL</strong>
+            Core technical areas
+          </div>
+          <div class="stat">
+            <strong>UX + Code</strong>
+            Design and development
+          </div>
+        </div>
       </div>
     </section>
 
-    <section>
-      <h2>Projekter</h2>
-      <div class="projects">
+    <section id="projects">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-intro">
+        A selection of projects that reflect my work across software development,
+        machine learning, prototyping and interactive systems.
+      </p>
 
-        <div class="project-card">
-          <h3>ProjectApp8sem</h3>
+      <div class="projects-grid">
+        <article class="glass project-card">
+          <div class="project-type">Individual Project</div>
+          <h3>Emotion Driven Human-AI Interaction</h3>
           <p>
-            Gruppeprojekt udviklet i forbindelse med 8. semester.
+            Developed a conversational system that combines a Unity frontend with
+            a Python backend and a locally hosted LLM to generate context-aware
+            responses.
           </p>
-          <p class="tech"><strong>Teknologier:</strong> Skriv fx React, Java, SQL</p>
-          <p class="role"><strong>Min rolle:</strong> Hvad jeg selv lavede i projektet.</p>
-          <a class="button" href="https://github.com/EIEntrance/ProjectApp8sem" target="_blank">Se projekt</a>
-        </div>
+          <div class="meta">
+            <strong>Responsibility:</strong> Full development including Unity frontend,
+            Python backend, LLM integration and communication between system parts.
+          </div>
+          <div class="tag-list">
+            <span class="tag">Unity</span>
+            <span class="tag">Python</span>
+            <span class="tag">LLM</span>
+            <span class="tag">JSON</span>
+            <span class="tag">Sockets</span>
+          </div>
+          <div class="project-links">
+            <a class="text-link" href="https://github.com/ceciliestadekristensen" target="_blank">GitHub Profile ↗</a>
+          </div>
+        </article>
 
-        <div class="project-card">
-          <h3>Basis-kode</h3>
+        <article class="glass project-card">
+          <div class="project-type">Group Project</div>
+          <h3>P9: Machine Learning Prediction Model</h3>
           <p>
-            Gruppeprojekt med fokus på udvikling og strukturering af kode.
+            Developed a machine learning pipeline for prediction work connected to
+            Bluestar, including data preparation and model-based output.
           </p>
-          <p class="tech"><strong>Teknologier:</strong> Skriv teknologier her</p>
-          <p class="role"><strong>Min rolle:</strong> Beskriv mit bidrag.</p>
-          <a class="button" href="https://github.com/P7-group-1/basis-kode" target="_blank">Se projekt</a>
-        </div>
+          <div class="meta">
+            <strong>My role:</strong> Worked on label encoding, XGBoost, pipeline logic,
+            visualization and communication of results in a form understandable for Bluestar.
+          </div>
+          <div class="tag-list">
+            <span class="tag">Python</span>
+            <span class="tag">XGBoost</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Encoding</span>
+            <span class="tag">Visualization</span>
+          </div>
+          <div class="project-links">
+            <a class="text-link" href="https://github.com/ceciliestadekristensen" target="_blank">GitHub Profile ↗</a>
+          </div>
+        </article>
 
-        <div class="project-card">
-          <h3>Basis-kode public</h3>
+        <article class="glass project-card">
+          <div class="project-type">Group Project</div>
+          <h3>NutriScan</h3>
           <p>
-            Offentlig version af et gruppeprojekt.
+            Developed a web-based solution designed to make nutritional information
+            easier to understand through a clear and intuitive interface.
           </p>
-          <p class="tech"><strong>Teknologier:</strong> Skriv teknologier her</p>
-          <p class="role"><strong>Min rolle:</strong> Beskriv mit bidrag.</p>
-          <a class="button" href="https://github.com/P7-group-1/Basis-kode-public-" target="_blank">Se projekt</a>
-        </div>
+          <div class="meta">
+            <strong>My role:</strong> Responsible for the homepage, navigation, search
+            functionality, visual design, JavaScript logic and parts of the overall UI implementation.
+          </div>
+          <div class="tag-list">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Navigation</span>
+            <span class="tag">Search</span>
+          </div>
+          <div class="project-links">
+            <a class="text-link" href="https://github.com/EIEntrance/ProjectApp8sem" target="_blank">View Repository ↗</a>
+          </div>
+        </article>
 
-        <div class="project-card">
-          <h3>Project Bluestar</h3>
+        <article class="glass project-card">
+          <div class="project-type">Group Project</div>
+          <h3>Social Engagement Through Interactive Design</h3>
           <p>
-            Projekt som jeg har været med til at kode på.
+            Developed an Android application focused on helping users discover social
+            activities and events through an interactive and accessible experience.
           </p>
-          <p class="tech"><strong>Teknologier:</strong> Skriv teknologier her</p>
-          <p class="role"><strong>Min rolle:</strong> Beskriv dit bidrag.</p>
-          <a class="button" href="https://github.com/Sebber1999/Project_bluestar" target="_blank">Se projekt</a>
-        </div>
+          <div class="meta">
+            <strong>My role:</strong> Contributed to Java classes, frontend and backend
+            logic, layout design, visual structure and navigation.
+          </div>
+          <div class="tag-list">
+            <span class="tag">Java</span>
+            <span class="tag">Android Studio</span>
+            <span class="tag">XML</span>
+            <span class="tag">Frontend</span>
+            <span class="tag">Backend</span>
+          </div>
+          <div class="project-links">
+            <a class="text-link" href="https://github.com/ceciliestadekristensen" target="_blank">GitHub Profile ↗</a>
+          </div>
+        </article>
 
-        <div class="project-card">
-          <h3>Speciale</h3>
+        <article class="glass project-card">
+          <div class="project-type">Individual Project</div>
+          <h3>AdopTree</h3>
           <p>
-            Projekt/repository som jeg har arbejdet på sammen med andre.
+            Designed a high-fidelity prototype of a mobile application focused on
+            tree adoption and environmental engagement.
           </p>
-          <p class="tech"><strong>Teknologier:</strong> Skriv teknologier her</p>
-          <p class="role"><strong>Min rolle:</strong> Beskriv mit bidrag.</p>
-          <a class="button" href="https://github.com/bobberen09060/Speciale" target="_blank">Se projekt</a>
-        </div>
-
+          <div class="meta">
+            <strong>Responsibility:</strong> Full responsibility for concept development,
+            UX design, prototype structure and user flow.
+          </div>
+          <div class="tag-list">
+            <span class="tag">Figma</span>
+            <span class="tag">UX Design</span>
+            <span class="tag">Prototype</span>
+            <span class="tag">User Flow</span>
+          </div>
+          <div class="project-links">
+            <a class="text-link" href="https://github.com/ceciliestadekristensen" target="_blank">GitHub Profile ↗</a>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section>
-      <h2>Kontakt</h2>
-      <div class="contact">
-        <p class="links">
-          GitHub:
-          <a href="https://github.com/ceciliestadekristensen" target="_blank">
+    <section id="tech">
+      <h2 class="section-title">Tech Stack</h2>
+      <p class="section-intro">
+        Technologies and tools I have worked with across courses, exams and projects.
+      </p>
+
+      <div class="tech-grid">
+        <div class="glass skill-card">
+          <h3>Technologies Used Across Projects</h3>
+          <div class="bar-group">
+            <div>
+              <div class="bar-label"><span>Python</span><span>Advanced academic use</span></div>
+              <div class="bar"><div class="bar-fill" style="width: 88%;"></div></div>
+            </div>
+            <div>
+              <div class="bar-label"><span>Java</span><span>Strong project use</span></div>
+              <div class="bar"><div class="bar-fill" style="width: 78%;"></div></div>
+            </div>
+            <div>
+              <div class="bar-label"><span>HTML / CSS / JavaScript</span><span>Web projects</span></div>
+              <div class="bar"><div class="bar-fill" style="width: 82%;"></div></div>
+            </div>
+            <div>
+              <div class="bar-label"><span>SQL</span><span>Database and data work</span></div>
+              <div class="bar"><div class="bar-fill" style="width: 68%;"></div></div>
+            </div>
+            <div>
+              <div class="bar-label"><span>Figma / UX</span><span>Design and prototyping</span></div>
+              <div class="bar"><div class="bar-fill" style="width: 80%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass skill-card">
+          <h3>Tools & Areas</h3>
+          <div class="tag-list">
+            <span class="tag">Python</span>
+            <span class="tag">Java</span>
+            <span class="tag">SQL</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Unity</span>
+            <span class="tag">Android Studio</span>
+            <span class="tag">Figma</span>
+            <span class="tag">XGBoost</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Interaction Design</span>
+            <span class="tag">Frontend</span>
+            <span class="tag">Backend</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="results">
+      <h2 class="section-title">Selected Results</h2>
+      <p class="section-intro">
+        A selection of strong academic results from courses and projects.
+      </p>
+
+      <div class="glass results-box">
+        <ul class="results-list">
+          <li>
+            <span>Human-Centered AI</span>
+            <span class="result-grade">12</span>
+          </li>
+          <li>
+            <span>Introduction to Programming</span>
+            <span class="result-grade">10</span>
+          </li>
+          <li>
+            <span>Development of Software (Semester Project / NutriScan)</span>
+            <span class="result-grade">10</span>
+          </li>
+          <li>
+            <span>Design and Evaluation of User Interfaces</span>
+            <span class="result-grade">10</span>
+          </li>
+          <li>
+            <span>System Development</span>
+            <span class="result-grade">10</span>
+          </li>
+          <li>
+            <span>Development of Interactive Systems (Semester Project)</span>
+            <span class="result-grade">10</span>
+          </li>
+          <li>
+            <span>P9 Semester Project</span>
+            <span class="result-grade">10</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-intro">
+        Feel free to reach out if you would like to know more about my projects,
+        background or experience.
+      </p>
+
+      <div class="glass contact-box">
+        <div class="contact-grid">
+          <a class="contact-item" href="mailto:ceciliestade@gmail.com">
+            <span>Email</span>
+            ceciliestade@gmail.com
+          </a>
+
+          <a class="contact-item" href="https://github.com/ceciliestadekristensen" target="_blank">
+            <span>GitHub</span>
             github.com/ceciliestadekristensen
           </a>
-        </p>
-        <p>Email: ceciliestade@gmail.com</p>
+
+          <a class="contact-item" href="https://www.linkedin.com/in/cecilie-stade-880457232/" target="_blank">
+            <span>LinkedIn</span>
+            cecilie-stade-880457232
+          </a>
+
+          <div class="contact-item">
+            <span>Location</span>
+            Aalborg, Denmark
+          </div>
+        </div>
       </div>
     </section>
   </main>
