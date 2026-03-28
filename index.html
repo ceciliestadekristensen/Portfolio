@@ -1,21 +1,226 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cecilie Städe Kristensen | Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin-inline: auto;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #111827;
+    }
+
+    .about, .contact {
+      background: white;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: white;
+      padding: 22px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    }
+
+    .project-card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #111827;
+    }
+
+    .tech {
+      font-size: 0.95rem;
+      color: #4b5563;
+      margin-bottom: 12px;
+    }
+
+    .role {
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+
+    a.button {
+      display: inline-block;
+      padding: 10px 16px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    a.button:hover {
+      background: #1d4ed8;
+    }
+
+    .links a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #6b7280;
+      font-size: 0.95rem;
+    }
+  </style>
 </head>
 <body>
-  <h1>Mit Portfolio</h1>
-  <p>Hej, jeg hedder Cecilie Städe Kristensen</p>
+  <header>
+    <h1>Cecilie Städe Kristensen</h1>
+    <p>
+      Velkommen til mit portfolio. Her viser jeg projekter, jeg har arbejdet på
+      under min uddannelse, både egne projekter og gruppeprojekter.
+    </p>
+  </header>
 
-  <h2>Projekter</h2>
-  <ul>
-    <li>
-      <strong>Projekt 1</strong><br>
-      Kort beskrivelse<br>
-      <a href="https://github.com/ceciliestadekristensen/REPO" target="_blank">Se projekt</a>
-    </li>
-  </ul>
+  <main>
+    <section>
+      <h2>Om mig</h2>
+      <div class="about">
+        <p>
+          Jeg er studerende og interesserer mig for softwareudvikling,
+          frontend, backend og samarbejde om projekter. På denne side har jeg samlet
+          nogle af de projekter, jeg har været med til at udvikle.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projekter</h2>
+      <div class="projects">
+
+        <div class="project-card">
+          <h3>ProjectApp8sem</h3>
+          <p>
+            Gruppeprojekt udviklet i forbindelse med 8. semester.
+          </p>
+          <p class="tech"><strong>Teknologier:</strong> Skriv fx React, Java, SQL</p>
+          <p class="role"><strong>Min rolle:</strong> Hvad jeg selv lavede i projektet.</p>
+          <a class="button" href="https://github.com/EIEntrance/ProjectApp8sem" target="_blank">Se projekt</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Basis-kode</h3>
+          <p>
+            Gruppeprojekt med fokus på udvikling og strukturering af kode.
+          </p>
+          <p class="tech"><strong>Teknologier:</strong> Skriv teknologier her</p>
+          <p class="role"><strong>Min rolle:</strong> Beskriv mit bidrag.</p>
+          <a class="button" href="https://github.com/P7-group-1/basis-kode" target="_blank">Se projekt</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Basis-kode public</h3>
+          <p>
+            Offentlig version af et gruppeprojekt.
+          </p>
+          <p class="tech"><strong>Teknologier:</strong> Skriv teknologier her</p>
+          <p class="role"><strong>Min rolle:</strong> Beskriv mit bidrag.</p>
+          <a class="button" href="https://github.com/P7-group-1/Basis-kode-public-" target="_blank">Se projekt</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Project Bluestar</h3>
+          <p>
+            Projekt som jeg har været med til at kode på.
+          </p>
+          <p class="tech"><strong>Teknologier:</strong> Skriv teknologier her</p>
+          <p class="role"><strong>Min rolle:</strong> Beskriv dit bidrag.</p>
+          <a class="button" href="https://github.com/Sebber1999/Project_bluestar" target="_blank">Se projekt</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Speciale</h3>
+          <p>
+            Projekt/repository som jeg har arbejdet på sammen med andre.
+          </p>
+          <p class="tech"><strong>Teknologier:</strong> Skriv teknologier her</p>
+          <p class="role"><strong>Min rolle:</strong> Beskriv mit bidrag.</p>
+          <a class="button" href="https://github.com/bobberen09060/Speciale" target="_blank">Se projekt</a>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <h2>Kontakt</h2>
+      <div class="contact">
+        <p class="links">
+          GitHub:
+          <a href="https://github.com/ceciliestadekristensen" target="_blank">
+            github.com/ceciliestadekristensen
+          </a>
+        </p>
+        <p>Email: ceciliestade@gmail.com</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Cecilie Städe Kristensen
+  </footer>
 </body>
 </html>
