@@ -6,21 +6,22 @@
   <title>Cecilie Städe Kristensen | Portfolio</title>
   <meta
     name="description"
-    content="Portfolio of Cecilie Städe Kristensen - Master's student in Digitalisation and Application Development."
+    content="Portfolio of Cecilie Städe Kristensen — Master's student in Digitalisation and Application Development, focused on frontend, digital solutions and user-focused development."
   />
   <style>
     :root {
-      --bg: #070b14;
-      --bg-soft: #0f172a;
-      --card: rgba(15, 23, 42, 0.78);
-      --card-border: rgba(148, 163, 184, 0.14);
-      --text: #e5eefb;
-      --muted: #9fb0ca;
+      --bg: #07111f;
+      --bg-soft: #0d1728;
+      --surface: rgba(13, 23, 40, 0.82);
+      --surface-2: rgba(255, 255, 255, 0.03);
+      --border: rgba(148, 163, 184, 0.14);
+      --text: #e8eef8;
+      --muted: #a6b5cb;
       --accent: #7c3aed;
       --accent-2: #38bdf8;
       --accent-3: #22c55e;
-      --shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
-      --radius: 20px;
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+      --radius: 22px;
       --max-width: 1180px;
     }
 
@@ -29,15 +30,19 @@
       scroll-behavior: smooth;
     }
 
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
+    }
+
+    body {
       font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(124, 58, 237, 0.18), transparent 30%),
-        radial-gradient(circle at top right, rgba(56, 189, 248, 0.15), transparent 30%),
-        linear-gradient(180deg, #05070d 0%, #0a1020 100%);
       color: var(--text);
       line-height: 1.6;
+      background:
+        radial-gradient(circle at top left, rgba(124, 58, 237, 0.15), transparent 30%),
+        radial-gradient(circle at top right, rgba(56, 189, 248, 0.12), transparent 28%),
+        linear-gradient(180deg, #050a14 0%, #0b1422 100%);
       overflow-x: hidden;
     }
 
@@ -51,24 +56,24 @@
       inset: 0;
       pointer-events: none;
       z-index: 0;
-      opacity: 0.5;
+      opacity: 0.42;
       background-image:
-        radial-gradient(2px 2px at 10% 20%, #ffffff, transparent),
-        radial-gradient(2px 2px at 20% 80%, #ffffff, transparent),
-        radial-gradient(2px 2px at 35% 35%, #ffffff, transparent),
-        radial-gradient(1.5px 1.5px at 50% 15%, #ffffff, transparent),
-        radial-gradient(2px 2px at 65% 65%, #ffffff, transparent),
-        radial-gradient(1.5px 1.5px at 80% 25%, #ffffff, transparent),
-        radial-gradient(2px 2px at 90% 75%, #ffffff, transparent),
-        radial-gradient(1.5px 1.5px at 70% 40%, #ffffff, transparent),
-        radial-gradient(2px 2px at 15% 55%, #ffffff, transparent),
-        radial-gradient(1.5px 1.5px at 45% 90%, #ffffff, transparent);
+        radial-gradient(2px 2px at 8% 18%, #ffffff, transparent),
+        radial-gradient(1.5px 1.5px at 18% 74%, #ffffff, transparent),
+        radial-gradient(2px 2px at 32% 38%, #ffffff, transparent),
+        radial-gradient(1.5px 1.5px at 47% 14%, #ffffff, transparent),
+        radial-gradient(2px 2px at 61% 66%, #ffffff, transparent),
+        radial-gradient(1.5px 1.5px at 78% 20%, #ffffff, transparent),
+        radial-gradient(2px 2px at 89% 76%, #ffffff, transparent),
+        radial-gradient(1.5px 1.5px at 68% 42%, #ffffff, transparent),
+        radial-gradient(2px 2px at 13% 57%, #ffffff, transparent),
+        radial-gradient(1.5px 1.5px at 42% 88%, #ffffff, transparent);
       animation: twinkle 7s linear infinite;
     }
 
     @keyframes twinkle {
-      0%, 100% { opacity: 0.35; }
-      50% { opacity: 0.6; }
+      0%, 100% { opacity: 0.32; }
+      50% { opacity: 0.56; }
     }
 
     .container {
@@ -81,10 +86,10 @@
     .nav {
       position: sticky;
       top: 0;
-      z-index: 20;
+      z-index: 30;
       backdrop-filter: blur(14px);
-      background: rgba(5, 9, 18, 0.72);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+      background: rgba(5, 10, 20, 0.72);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.1);
     }
 
     .nav-inner {
@@ -96,10 +101,10 @@
     }
 
     .logo {
-      font-size: 1.4rem;
-      font-weight: 700;
+      font-size: 1.3rem;
+      font-weight: 800;
       letter-spacing: 0.02em;
-      color: #c4b5fd;
+      color: #c7b7ff;
     }
 
     .nav-links {
@@ -111,7 +116,7 @@
     .nav-links a {
       color: var(--muted);
       font-weight: 600;
-      transition: 0.2s ease;
+      transition: color 0.2s ease;
     }
 
     .nav-links a:hover {
@@ -119,54 +124,57 @@
     }
 
     .hero {
-      min-height: 90vh;
+      min-height: 92vh;
       display: grid;
       place-items: center;
       padding: 5rem 0 3rem;
     }
 
     .hero-box {
+      max-width: 960px;
       text-align: center;
-      max-width: 900px;
     }
 
     .eyebrow {
-      display: inline-block;
-      padding: 0.35rem 0.8rem;
-      border: 1px solid rgba(124, 58, 237, 0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.9rem;
       border-radius: 999px;
-      color: #d8c8ff;
+      border: 1px solid rgba(124, 58, 237, 0.3);
+      background: rgba(124, 58, 237, 0.1);
+      color: #dccfff;
       font-size: 0.95rem;
       margin-bottom: 1.2rem;
-      background: rgba(124, 58, 237, 0.12);
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(2.8rem, 7vw, 5.4rem);
-      line-height: 0.95;
-      letter-spacing: -0.03em;
-      text-shadow: 0 0 28px rgba(124, 58, 237, 0.25);
+      font-size: clamp(3rem, 7vw, 5.6rem);
+      line-height: 0.94;
+      letter-spacing: -0.04em;
     }
 
     .hero-gradient {
-      background: linear-gradient(90deg, #f8fbff, #b9cbff, #d8c8ff);
+      background: linear-gradient(90deg, #f9fbff, #bfd4ff, #dccfff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      text-shadow: 0 0 26px rgba(124, 58, 237, 0.2);
     }
 
     .hero-subtitle {
       margin: 1rem auto 0;
-      font-size: clamp(1.1rem, 2vw, 1.5rem);
-      color: #b9c9e7;
-      max-width: 760px;
+      font-size: clamp(1.15rem, 2vw, 1.55rem);
+      color: #bfcee3;
+      max-width: 780px;
+      font-weight: 600;
     }
 
     .hero-text {
-      margin: 1.5rem auto 0;
-      color: var(--muted);
+      margin: 1.35rem auto 0;
       max-width: 760px;
+      color: var(--muted);
       font-size: 1.05rem;
     }
 
@@ -179,14 +187,15 @@
     }
 
     .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
       padding: 0.95rem 1.35rem;
       border-radius: 999px;
       font-weight: 700;
       border: 1px solid transparent;
       transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
     }
 
     .btn:hover {
@@ -196,29 +205,29 @@
     .btn-primary {
       background: linear-gradient(90deg, var(--accent), #5b7cff);
       color: white;
-      box-shadow: 0 10px 25px rgba(91, 124, 255, 0.25);
+      box-shadow: 0 10px 24px rgba(91, 124, 255, 0.24);
     }
 
     .btn-secondary {
       background: rgba(255, 255, 255, 0.03);
-      border-color: rgba(148, 163, 184, 0.22);
       color: var(--text);
+      border-color: rgba(148, 163, 184, 0.18);
     }
 
     .quick-info {
       margin-top: 2rem;
       display: flex;
-      gap: 0.8rem;
-      flex-wrap: wrap;
+      gap: 0.75rem;
       justify-content: center;
+      flex-wrap: wrap;
     }
 
     .chip {
-      padding: 0.6rem 0.9rem;
+      padding: 0.65rem 0.95rem;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.76);
+      background: rgba(13, 23, 40, 0.8);
       border: 1px solid rgba(148, 163, 184, 0.14);
-      color: #c5d1e7;
+      color: #c6d3e7;
       font-size: 0.94rem;
     }
 
@@ -228,7 +237,7 @@
 
     .section-title {
       font-size: clamp(2rem, 4vw, 3rem);
-      margin: 0 0 0.7rem;
+      margin: 0 0 0.65rem;
       letter-spacing: -0.03em;
     }
 
@@ -239,86 +248,101 @@
     }
 
     .glass {
-      background: var(--card);
-      border: 1px solid var(--card-border);
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
 
-    .about-box {
+    .about-box,
+    .contact-box,
+    .highlights-box {
       padding: 2rem;
     }
 
-    .about-box p {
+    .about-box p,
+    .contact-box p {
       margin: 0 0 1rem;
-      color: #d0dbee;
-      font-size: 1.04rem;
+      color: #d3ddef;
+      font-size: 1.03rem;
     }
 
     .stats {
       margin-top: 1.5rem;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
       gap: 1rem;
     }
 
     .stat {
-      padding: 1.2rem;
+      padding: 1.1rem;
       border-radius: 16px;
       background: rgba(255, 255, 255, 0.025);
-      border: 1px solid rgba(148, 163, 184, 0.1);
+      border: 1px solid rgba(148, 163, 184, 0.08);
     }
 
     .stat strong {
       display: block;
-      font-size: 1.6rem;
-      margin-bottom: 0.2rem;
+      font-size: 1.25rem;
+      margin-bottom: 0.25rem;
+      color: #eef4ff;
     }
 
-    .projects-grid {
+    .projects-grid,
+    .competency-grid,
+    .strength-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
       gap: 1.2rem;
     }
 
-    .project-card {
+    .project-card,
+    .competency-card,
+    .strength-card {
       padding: 1.35rem;
       position: relative;
       overflow: hidden;
     }
 
-    .project-card::before {
+    .project-card::before,
+    .competency-card::before,
+    .strength-card::before {
       content: "";
       position: absolute;
       inset: auto -20% -60% auto;
-      width: 180px;
-      height: 180px;
-      background: radial-gradient(circle, rgba(124, 58, 237, 0.18), transparent 70%);
+      width: 170px;
+      height: 170px;
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.16), transparent 70%);
       pointer-events: none;
     }
 
-    .project-type {
-      color: #c9b8ff;
-      font-size: 0.9rem;
-      font-weight: 700;
+    .project-type,
+    .card-label {
+      color: #cdbdff;
+      font-size: 0.86rem;
+      font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
 
-    .project-card h3 {
+    .project-card h3,
+    .competency-card h3,
+    .strength-card h3 {
       margin: 0.55rem 0 0.7rem;
-      font-size: 1.35rem;
+      font-size: 1.28rem;
     }
 
-    .project-card p {
-      color: #cfdbef;
+    .project-card p,
+    .competency-card p,
+    .strength-card p {
       margin: 0 0 0.9rem;
+      color: #d0dced;
     }
 
     .meta {
       color: var(--muted);
       font-size: 0.95rem;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.8rem;
     }
 
     .tag-list {
@@ -329,90 +353,57 @@
     }
 
     .tag {
-      font-size: 0.86rem;
+      font-size: 0.85rem;
       padding: 0.42rem 0.72rem;
       border-radius: 999px;
       border: 1px solid rgba(148, 163, 184, 0.15);
-      color: #c6d3ea;
       background: rgba(255, 255, 255, 0.03);
+      color: #c9d5e8;
     }
 
-    .project-links {
+    .project-links,
+    .contact-grid {
       display: flex;
-      gap: 0.8rem;
       flex-wrap: wrap;
-      margin-top: 1rem;
+      gap: 0.85rem;
     }
 
     .text-link {
       font-weight: 700;
-      color: #c4d8ff;
+      color: #cfe0ff;
     }
 
-    .tech-grid {
+    .text-link:hover {
+      color: white;
+    }
+
+    .competency-list {
+      margin: 0;
+      padding-left: 1.15rem;
+      color: #d4deee;
+    }
+
+    .competency-list li {
+      margin-bottom: 0.55rem;
+    }
+
+    .highlights-list {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-    }
-
-    .skill-card {
-      padding: 1.2rem;
-    }
-
-    .skill-card h3 {
-      margin-top: 0;
-      margin-bottom: 0.8rem;
-    }
-
-    .bar-group {
-      display: grid;
-      gap: 0.9rem;
-    }
-
-    .bar-label {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.95rem;
-      color: #d6e0f2;
-      margin-bottom: 0.3rem;
-    }
-
-    .bar {
-      width: 100%;
-      height: 10px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.06);
-      overflow: hidden;
-    }
-
-    .bar-fill {
-      height: 100%;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-    }
-
-    .results-box,
-    .contact-box {
-      padding: 1.5rem;
-    }
-
-    .results-list {
-      display: grid;
-      gap: 0.9rem;
+      gap: 0.85rem;
       margin: 0;
       padding: 0;
       list-style: none;
     }
 
-    .results-list li {
+    .highlights-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
       padding: 1rem 1.1rem;
       border-radius: 14px;
       background: rgba(255, 255, 255, 0.025);
-      border: 1px solid rgba(148, 163, 184, 0.1);
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      align-items: center;
+      border: 1px solid rgba(148, 163, 184, 0.08);
     }
 
     .result-grade {
@@ -424,7 +415,6 @@
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1rem;
       margin-top: 1rem;
     }
 
@@ -432,7 +422,7 @@
       padding: 1rem;
       border-radius: 16px;
       background: rgba(255, 255, 255, 0.025);
-      border: 1px solid rgba(148, 163, 184, 0.1);
+      border: 1px solid rgba(148, 163, 184, 0.08);
     }
 
     .contact-item span {
@@ -459,7 +449,7 @@
         gap: 0.8rem;
       }
 
-      .results-list li {
+      .highlights-list li {
         flex-direction: column;
         align-items: flex-start;
       }
@@ -473,10 +463,10 @@
     <div class="container nav-inner">
       <a href="#top" class="logo">&lt;Cecilie /&gt;</a>
       <div class="nav-links">
-        <a href="#about">About</a>
+        <a href="#profile">Profile</a>
         <a href="#projects">Projects</a>
-        <a href="#tech">Tech Stack</a>
-        <a href="#results">Results</a>
+        <a href="#competencies">Competencies</a>
+        <a href="#approach">Approach</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -490,9 +480,9 @@
         Master’s student in Digitalisation and Application Development
       </p>
       <p class="hero-text">
-        I combine software development, interaction design and data-driven thinking.
-        My work spans web development, Java, Python, machine learning, databases,
-        prototyping and human-centered AI.
+        I build digital solutions that connect frontend development, interaction design and technical problem-solving.
+        My background spans web, mobile and intelligent systems, and I am interested in full-time roles within
+        frontend development, digital product work and IT consulting after graduating in June 2026.
       </p>
 
       <div class="hero-actions">
@@ -503,86 +493,82 @@
       <div class="quick-info">
         <div class="chip">Aalborg, Denmark</div>
         <div class="chip">Graduating June 2026</div>
-        <div class="chip">Bachelor’s degree in Art and Technology</div>
+        <div class="chip">Open to full-time roles after graduation</div>
       </div>
     </div>
   </header>
 
   <main class="container">
-    <section id="about">
-      <h2 class="section-title">About Me</h2>
+    <section id="profile">
+      <h2 class="section-title">Profile</h2>
       <p class="section-intro">
-        A technical and creative profile with experience across software development,
-        interactive systems, machine learning and design.
+        A technical and creative profile working in the space between development, design and digital problem-solving.
       </p>
 
       <div class="glass about-box">
         <p>
-          I am currently completing my master’s degree in Digitalisation and
-          Application Development and will graduate in June 2026. I also hold a
-          bachelor’s degree in Art and Technology.
+          I am currently completing my master’s degree in Digitalisation and Application Development and expect to graduate in June 2026.
+          I also hold a bachelor’s degree in Art and Technology.
         </p>
         <p>
-          Through my studies, I have worked with both individual and group-based
-          software projects involving web development, Java, Python, SQL, Android
-          development, machine learning, prototyping and interaction design.
+          Through my studies, I have worked with frontend development, web applications, Android development,
+          machine learning, Python, Java, SQL, prototyping and interaction design in both individual and group-based projects.
         </p>
         <p>
-          I am especially interested in building digital solutions that combine
-          functionality, usability and intelligent behavior in a way that is clear
-          and useful for real users.
+          I am motivated by building solutions that are technically well-structured, useful for end users and grounded in real needs.
+          I am particularly interested in opportunities where I can combine development, interface work and user-focused thinking.
         </p>
 
         <div class="stats">
           <div class="stat">
-            <strong>5</strong>
-            Featured projects
+            <strong>4 selected projects</strong>
+            Web, mobile, AI and machine learning work
           </div>
           <div class="stat">
-            <strong>10 / 12</strong>
-            Strong selected results
+            <strong>Frontend + development</strong>
+            Experience across design and implementation
           </div>
           <div class="stat">
-            <strong>Java • Python • SQL</strong>
+            <strong>Python • Java • JavaScript</strong>
             Core technical areas
           </div>
           <div class="stat">
-            <strong>UX + Code</strong>
-            Design and development
+            <strong>June 2026</strong>
+            Available for full-time opportunities after graduation
           </div>
         </div>
       </div>
     </section>
 
     <section id="projects">
-      <h2 class="section-title">Featured Projects</h2>
+      <h2 class="section-title">Selected Projects</h2>
       <p class="section-intro">
-        A selection of projects that reflect my work across software development,
-        machine learning, prototyping and interactive systems.
+        A selection of projects that reflect my experience across software development, frontend work,
+        machine learning and interactive systems.
       </p>
 
       <div class="projects-grid">
         <article class="glass project-card">
           <div class="project-type">Individual Project</div>
-          <h3>Emotion Driven Human-AI Interaction</h3>
+          <h3>Emotion-Driven Human-AI Interaction</h3>
           <p>
-            Developed a conversational system that combines a Unity frontend with
-            a Python backend and a locally hosted LLM to generate context-aware
-            responses.
+            Built a real-time interactive system combining a Unity interface, a Python backend
+            and LLM-based response generation. The project explored how emotionally aware AI
+            interactions can be designed and implemented across multiple system components.
           </p>
           <div class="meta">
-            <strong>Responsibility:</strong> Full development including Unity frontend,
-            Python backend, LLM integration and communication between system parts.
+            <strong>What I worked on:</strong> Unity frontend, Python backend logic,
+            API communication, LLM integration and overall system architecture.
           </div>
           <div class="tag-list">
             <span class="tag">Unity</span>
             <span class="tag">Python</span>
             <span class="tag">LLM</span>
-            <span class="tag">JSON</span>
-            <span class="tag">Sockets</span>
+            <span class="tag">API Integration</span>
+            <span class="tag">Interaction Design</span>
           </div>
           <div class="project-links">
-            <a class="text-link" href="https://github.com/ceciliestadekristensen/emotion-driven-human-ai-interaction" target="_blank">GitHub Profile ↗</a>
+            <a class="text-link" href="https://github.com/ceciliestadekristensen/emotion-driven-human-ai-interaction" target="_blank" rel="noopener noreferrer">View Repository ↗</a>
           </div>
         </article>
 
@@ -590,198 +576,208 @@
           <div class="project-type">Group Project</div>
           <h3>Machine Learning Prediction Model</h3>
           <p>
-            Developed a machine learning pipeline for prediction work connected to
-            Bluestar, including data preparation and model-based output.
+            Developed a machine learning solution in collaboration with Bluestar PLM to support
+            intelligent data entry by predicting relevant values based on historical patterns.
+            The project focused on translating domain-specific data into a practical prediction pipeline.
           </p>
           <div class="meta">
-            <strong>My role:</strong> Worked on label encoding, XGBoost, pipeline logic,
-            visualization and communication of results in a form understandable for Bluestar.
+            <strong>My contribution:</strong> Label encoding, preprocessing, XGBoost integration,
+            pipeline development, visualization and communication of results to external stakeholders.
           </div>
           <div class="tag-list">
             <span class="tag">Python</span>
             <span class="tag">XGBoost</span>
-            <span class="tag">SQL</span>
-            <span class="tag">Encoding</span>
+            <span class="tag">Data Processing</span>
+            <span class="tag">ML Pipeline</span>
             <span class="tag">Visualization</span>
           </div>
           <div class="project-links">
-            <a class="text-link" href="https://github.com/ceciliestadekristensen/machine-learning-prediction-model-p9" target="_blank">GitHub Profile ↗</a>
+            <a class="text-link" href="https://github.com/ceciliestadekristensen/machine-learning-prediction-model-p9" target="_blank" rel="noopener noreferrer">View Repository ↗</a>
           </div>
         </article>
 
         <article class="glass project-card">
-          <div class="project-type">Group Project</div>
+          <div class="project-type">Frontend Web Project</div>
           <h3>NutriScan</h3>
           <p>
-            Developed a web-based solution designed to make nutritional information
-            easier to understand through a clear and intuitive interface.
+            Designed and developed a web-based prototype that makes nutritional information easier
+            to understand through clearer visual hierarchy, navigation and structured product pages.
           </p>
           <div class="meta">
-            <strong>My role:</strong> Responsible for the homepage, navigation, search
-            functionality, visual design, JavaScript logic and parts of the overall UI implementation.
+            <strong>My contribution:</strong> Frontend development in HTML, CSS and JavaScript,
+            homepage, navigation, search, product page structure and translation of user research into interface decisions.
           </div>
           <div class="tag-list">
             <span class="tag">HTML</span>
             <span class="tag">CSS</span>
             <span class="tag">JavaScript</span>
-            <span class="tag">Navigation</span>
-            <span class="tag">Search</span>
+            <span class="tag">Frontend</span>
+            <span class="tag">UI Design</span>
           </div>
           <div class="project-links">
-            <a class="text-link" href="https://github.com/ceciliestadekristensen/nutriscan-web-application" target="_blank">View Repository ↗</a>
+            <a class="text-link" href="https://github.com/ceciliestadekristensen/nutriscan-web-application" target="_blank" rel="noopener noreferrer">View Repository ↗</a>
           </div>
         </article>
 
         <article class="glass project-card">
           <div class="project-type">Group Project</div>
-          <h3>Social Engagement Through Interactive Design</h3>
+          <h3>Social Engagement App</h3>
           <p>
-            Developed an Android application focused on helping users discover social
-            activities and events through an interactive and accessible experience.
+            Developed an Android application concept aimed at helping students discover social events
+            through a personalized and accessible mobile experience.
           </p>
           <div class="meta">
-            <strong>My role:</strong> Contributed to Java classes, frontend and backend
-            logic, layout design, visual structure and navigation.
+            <strong>My contribution:</strong> UI design and layout work, character selection interface,
+            timeline and calendar-related features, navigation improvements and collaboration on app structure and implementation.
           </div>
           <div class="tag-list">
             <span class="tag">Java</span>
             <span class="tag">Android Studio</span>
             <span class="tag">XML</span>
-            <span class="tag">Frontend</span>
-            <span class="tag">Backend</span>
+            <span class="tag">Mobile UI</span>
+            <span class="tag">Navigation</span>
           </div>
           <div class="project-links">
-            <a class="text-link" https://github.com/ceciliestadekristensen/social-engagement-through-interactive-design" target="_blank">GitHub Profile ↗</a>
+            <a class="text-link" href="https://github.com/ceciliestadekristensen/social-engagement-through-interactive-design" target="_blank" rel="noopener noreferrer">View Repository ↗</a>
           </div>
         </article>
+        
+      <article class="glass project-card">
+        <div class="project-type">Individual Project</div>
+        <h3>AdopTree</h3>
+        <p>
+          Designed a mobile application concept focused on tree adoption and environmental engagement,
+          with emphasis on user flow, interface structure and communicating complex information in a simple and accessible way.
+        </p>
+        <div class="meta">
+          <strong>My contribution:</strong> Concept development, user flow design, high-fidelity prototyping,
+          interface design and structuring the overall user experience from idea to interactive prototype.
+        </div>
+        <div class="tag-list">
+          <span class="tag">Figma</span>
+          <span class="tag">UX/UI</span>
+          <span class="tag">Prototype</span>
+          <span class="tag">User Flow</span>
+          <span class="tag">Mobile Design</span>
+        </div>
+        <div class="project-links">
+          <a class="text-link" href="https://github.com/ceciliestadekristensen" target="_blank" rel="noopener noreferrer">View Repository ↗</a>
+        </div>
+      </article>
+      </div>
+    </section>
 
-        <article class="glass project-card">
-          <div class="project-type">Individual Project</div>
-          <h3>AdopTree</h3>
+    <section id="competencies">
+      <h2 class="section-title">Core Competencies</h2>
+      <p class="section-intro">
+        Technologies, tools and areas I have worked with across university projects and individual development work.
+      </p>
+
+      <div class="competency-grid">
+        <article class="glass competency-card">
+          <div class="card-label">Development</div>
+          <h3>Languages & Technical Work</h3>
+          <ul class="competency-list">
+            <li>Python</li>
+            <li>Java</li>
+            <li>HTML, CSS and JavaScript</li>
+            <li>SQL</li>
+            <li>API-based communication</li>
+            <li>Data preprocessing and machine learning workflows</li>
+          </ul>
+        </article>
+
+        <article class="glass competency-card">
+          <div class="card-label">Tools & Platforms</div>
+          <h3>Software and Environments</h3>
+          <ul class="competency-list">
+            <li>GitHub</li>
+            <li>Unity</li>
+            <li>Android Studio</li>
+            <li>Figma</li>
+            <li>XGBoost</li>
+            <li>Local prototyping and testing workflows</li>
+          </ul>
+        </article>
+
+        <article class="glass competency-card">
+          <div class="card-label">Methods & Focus Areas</div>
+          <h3>How I Approach Digital Solutions</h3>
+          <ul class="competency-list">
+            <li>Frontend development</li>
+            <li>Interaction design</li>
+            <li>User-centered design</li>
+            <li>Prototyping and usability thinking</li>
+            <li>Machine learning and data-driven problem solving</li>
+            <li>Translation of user needs into structured digital solutions</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="approach">
+      <h2 class="section-title">What I Bring</h2>
+      <p class="section-intro">
+        I work best in roles where technical implementation and user-focused thinking need to support each other.
+      </p>
+
+      <div class="strength-grid">
+        <article class="glass strength-card">
+          <div class="card-label">User-focused development</div>
+          <h3>Bridging usability and implementation</h3>
           <p>
-            Designed a high-fidelity prototype of a mobile application focused on
-            tree adoption and environmental engagement.
+            I combine technical work with an understanding of usability, navigation and user needs.
+            This helps me create solutions that are not only functional, but also clear and intuitive to use.
           </p>
-          <div class="meta">
-            <strong>Responsibility:</strong> Full responsibility for concept development,
-            UX design, prototype structure and user flow.
-          </div>
-          <div class="tag-list">
-            <span class="tag">Figma</span>
-            <span class="tag">UX Design</span>
-            <span class="tag">Prototype</span>
-            <span class="tag">User Flow</span>
-          </div>
-          <div class="project-links">
-            <a class="text-link" href="https://github.com/ceciliestadekristensen" target="_blank">GitHub Profile ↗</a>
-          </div>
+        </article>
+
+        <article class="glass strength-card">
+          <div class="card-label">Frontend and interface work</div>
+          <h3>Building structured digital experiences</h3>
+          <p>
+            I enjoy working with interfaces across web and mobile contexts, with attention to both structure,
+            interaction flow and the quality of the overall user experience.
+          </p>
+        </article>
+
+        <article class="glass strength-card">
+          <div class="card-label">Collaboration and problem solving</div>
+          <h3>Turning ideas into working solutions</h3>
+          <p>
+            Through group projects and collaboration with external stakeholders, I have experience translating
+            ideas, requirements and research into concrete digital solutions.
+          </p>
         </article>
       </div>
     </section>
 
-    <section id="tech">
-      <h2 class="section-title">Tech Stack</h2>
+    <section id="highlights">
+      <h2 class="section-title">Academic Highlights</h2>
       <p class="section-intro">
-        Technologies and tools I have worked with across courses, exams and projects.
+        Selected results that reflect strong performance across development, interaction design and AI-related work.
       </p>
 
-      <div class="tech-grid">
-        <div class="glass skill-card">
-          <h3>Technologies Used Across Projects</h3>
-          <div class="bar-group">
-            <div>
-              <div class="bar-label"><span>Python</span><span>Advanced academic use</span></div>
-              <div class="bar"><div class="bar-fill" style="width: 88%;"></div></div>
-            </div>
-            <div>
-              <div class="bar-label"><span>Java</span><span>Strong project use</span></div>
-              <div class="bar"><div class="bar-fill" style="width: 78%;"></div></div>
-            </div>
-            <div>
-              <div class="bar-label"><span>HTML / CSS / JavaScript</span><span>Web projects</span></div>
-              <div class="bar"><div class="bar-fill" style="width: 82%;"></div></div>
-            </div>
-            <div>
-              <div class="bar-label"><span>SQL</span><span>Database and data work</span></div>
-              <div class="bar"><div class="bar-fill" style="width: 68%;"></div></div>
-            </div>
-            <div>
-              <div class="bar-label"><span>Figma / UX</span><span>Design and prototyping</span></div>
-              <div class="bar"><div class="bar-fill" style="width: 80%;"></div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="glass skill-card">
-          <h3>Tools & Areas</h3>
-          <div class="tag-list">
-            <span class="tag">Python</span>
-            <span class="tag">Java</span>
-            <span class="tag">SQL</span>
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">Unity</span>
-            <span class="tag">Android Studio</span>
-            <span class="tag">Figma</span>
-            <span class="tag">XGBoost</span>
-            <span class="tag">GitHub</span>
-            <span class="tag">Machine Learning</span>
-            <span class="tag">Interaction Design</span>
-            <span class="tag">Frontend</span>
-            <span class="tag">Backend</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="results">
-      <h2 class="section-title">Selected Results</h2>
-      <p class="section-intro">
-        A selection of important academic results from courses and projects.
-      </p>
-
-      <div class="glass results-box">
-        <ul class="results-list">
+      <div class="glass highlights-box">
+        <ul class="highlights-list">
           <li>
-            <span>Introduction to Programming (IP)</span>
-            <span class="result-grade">10</span>
-          </li>
-          <li>
-            <span>Development of Software (Semester Project (P7) / NutriScan)</span>
-            <span class="result-grade">10</span>
-          </li>
-           <li>
-            <span>System Development (SU)</span>
-            <span class="result-grade">10</span>
-          </li>
-          <li>
-            <span>Foundational Object-Oriented Programming (GOOP)</span>
-            <span class="result-grade">7</span>
-          </li>
-          <li>
-            <span>Design and Evaluation of User Interfaces (Individual Project / AdopTree)</span>
-            <span class="result-grade">10</span>
-          </li>
-          <li>
-            <span>Development of an Interactive Design (Semester Project (P8) / Social Engagement Through Interactive Design) </span>
-            <span class="result-grade">10</span>
-          </li>
-          <li>
-            <span>Human-Centered AI Interaction (Individual Project / Emotion Driven Human-AI Interaction)</span>
+            <span>Human-Centered AI Interaction - Emotion-Driven Human-AI Interaction</span>
             <span class="result-grade">12</span>
           </li>
           <li>
-            <span>Agile Software Engineering (ASE)</span>
-            <span class="result-grade">7</span>
+            <span>Development of Software — NutriScan</span>
+            <span class="result-grade">10</span>
           </li>
           <li>
-            <span>Development of Interactive Systems (Semester Project (P9) / Machine Learning Prediction Model)</span>
+            <span>Development of an Interactive Design — Social Engagement App</span>
+            <span class="result-grade">10</span>
+          </li>
+          <li>
+            <span>Development of Interactive Systems — Machine Learning Prediction Model</span>
             <span class="result-grade">10</span>
           </li>
           <li>
             <span>Master Thesis</span>
-            <span class="result-grade">TBD</span>
+            <span class="result-grade">In progress</span>
           </li>
         </ul>
       </div>
@@ -790,8 +786,9 @@
     <section id="contact">
       <h2 class="section-title">Contact</h2>
       <p class="section-intro">
-        Feel free to reach out if you would like to know more about my projects,
-        background or experience.
+        I am currently completing my master’s degree and will graduate in June 2026.
+        If you would like to connect regarding future full-time opportunities within frontend,
+        digital development or IT consulting, feel free to reach out.
       </p>
 
       <div class="glass contact-box">
@@ -801,12 +798,12 @@
             ceciliestade@gmail.com
           </a>
 
-          <a class="contact-item" href="https://github.com/ceciliestadekristensen" target="_blank">
+          <a class="contact-item" href="https://github.com/ceciliestadekristensen" target="_blank" rel="noopener noreferrer">
             <span>GitHub</span>
             github.com/ceciliestadekristensen
           </a>
 
-          <a class="contact-item" href="https://www.linkedin.com/in/cecilie-stade-880457232/" target="_blank">
+          <a class="contact-item" href="https://www.linkedin.com/in/cecilie-stade-880457232/" target="_blank" rel="noopener noreferrer">
             <span>LinkedIn</span>
             cecilie-stade-880457232
           </a>
@@ -821,7 +818,7 @@
   </main>
 
   <footer>
-    © 2026 Cecilie Städe Kristensen
+    © Cecilie Städe Kristensen
   </footer>
 </body>
 </html>
