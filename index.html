@@ -377,6 +377,55 @@
       color: white;
     }
 
+    .project-card-link {
+      display: block;
+      color: inherit;
+    }
+
+    .project-card {
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      cursor: pointer;
+      height: 100%;
+    }
+
+    .project-card-link:hover .project-card {
+      transform: translateY(-4px);
+      border-color: rgba(124, 58, 237, 0.35);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.32);
+    }
+
+    .project-preview {
+      position: fixed;
+      top: 50%;
+      right: 2rem;
+      transform: translateY(-50%);
+      width: 360px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      background: rgba(10, 16, 32, 0.96);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      z-index: 50;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+      pointer-events: none;
+    }
+
+    .project-preview img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+
+    .project-preview.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(-50%) scale(1.02);
+    }
+
     .competency-list {
       margin: 0;
       padding-left: 1.15rem;
@@ -439,6 +488,12 @@
       font-size: 0.95rem;
     }
 
+    @media (max-width: 1100px) {
+      .project-preview {
+        display: none;
+      }
+    }
+
     @media (max-width: 780px) {
       .nav-inner {
         flex-direction: column;
@@ -480,9 +535,9 @@
         Master’s student in Digitalisation and Application Development
       </p>
       <p class="hero-text">
-        I build digital solutions that connect frontend development, interaction design and technical problem-solving.
-        My background spans web, mobile and intelligent systems, and I am interested in full-time roles within
-        frontend development, digital product work and IT consulting after graduating in June 2026.
+        I build digital solutions that combine frontend development, interaction design and technical problem-solving.
+        My experience spans web, mobile and intelligent systems, and I am interested in full-time roles within frontend development,
+        digital product development and IT consulting after graduating in June 2026.
       </p>
 
       <div class="hero-actions">
@@ -516,7 +571,7 @@
         </p>
         <p>
           I am motivated by building solutions that are technically well-structured, useful for end users and grounded in real needs.
-          I am particularly interested in opportunities where I can combine development, interface work and userfocused thinking.
+          I am particularly interested in opportunities where I can combine development, interface work and user-focused thinking.
         </p>
 
         <div class="stats">
@@ -548,122 +603,117 @@
       </p>
 
       <div class="projects-grid">
-        <article class="glass project-card">
-          <div class="project-type">Individual Project</div>
-          <h3>Emotion-Driven Human-AI Interaction</h3>
-          <p>
-            Built a real-time interactive system combining a Unity interface, a Python backend
-            and LLM-based response generation. The project explored how emotionally aware AI
-            interactions can be designed and implemented across multiple system components.
-          </p>
-          <div class="meta">
-            <strong>What I worked on:</strong> Unity frontend, Python backend logic,
-            API communication, LLM integration and overall system architecture.
-          </div>
-          <div class="tag-list">
-            <span class="tag">Unity</span>
-            <span class="tag">Python</span>
-            <span class="tag">LLM</span>
-            <span class="tag">API Integration</span>
-            <span class="tag">Interaction Design</span>
-          </div>
-          <div class="project-links">
-            <a class="text-link" href="https://github.com/ceciliestadekristensen/emotion-driven-human-ai-interaction" target="_blank" rel="noopener noreferrer">View Repository ↗</a>
-          </div>
-        </article>
+        <a class="project-card-link" href="projects/emotion-ai.html">
+          <article class="glass project-card" data-preview="images/emotion-preview.png">
+            <div class="project-type">Individual Project</div>
+            <h3>Emotion-Driven Human-AI Interaction</h3>
+            <p>
+              Built a real-time interactive system combining a Unity interface, a Python backend
+              and LLM-based response generation. The project explored how emotionally aware AI
+              interactions can be designed and implemented across multiple system components.
+            </p>
+            <div class="meta">
+              <strong>What I worked on:</strong> Unity frontend, Python backend logic,
+              API communication, LLM integration and overall system architecture.
+            </div>
+            <div class="tag-list">
+              <span class="tag">Unity</span>
+              <span class="tag">Python</span>
+              <span class="tag">LLM</span>
+              <span class="tag">API Integration</span>
+              <span class="tag">Interaction Design</span>
+            </div>
+          </article>
+        </a>
 
-        <article class="glass project-card">
-          <div class="project-type">Group Project</div>
-          <h3>Machine Learning Prediction Model</h3>
-          <p>
-            Developed a machine learning solution in collaboration with Bluestar PLM to support
-            intelligent data entry by predicting relevant values based on historical patterns.
-            The project focused on translating domain-specific data into a practical prediction pipeline.
-          </p>
-          <div class="meta">
-            <strong>My contribution:</strong> Label encoding, preprocessing, XGBoost integration,
-            pipeline development, visualization and communication of results to external stakeholders.
-          </div>
-          <div class="tag-list">
-            <span class="tag">Python</span>
-            <span class="tag">XGBoost</span>
-            <span class="tag">Data Processing</span>
-            <span class="tag">ML Pipeline</span>
-            <span class="tag">Visualization</span>
-          </div>
-          <div class="project-links">
-            <a class="text-link" href="https://github.com/ceciliestadekristensen/machine-learning-prediction-model-p9" target="_blank" rel="noopener noreferrer">View Repository ↗</a>
-          </div>
-        </article>
+        <a class="project-card-link" href="projects/machine-learning.html">
+          <article class="glass project-card" data-preview="images/ml-preview.png">
+            <div class="project-type">Group Project</div>
+            <h3>Machine Learning Prediction Model</h3>
+            <p>
+              Developed a machine learning solution in collaboration with Bluestar PLM to support
+              intelligent data entry by predicting relevant values based on historical patterns.
+              The project focused on translating domain-specific data into a practical prediction pipeline.
+            </p>
+            <div class="meta">
+              <strong>My contribution:</strong> Label encoding, preprocessing, XGBoost integration,
+              pipeline development, visualization and communication of results to external stakeholders.
+            </div>
+            <div class="tag-list">
+              <span class="tag">Python</span>
+              <span class="tag">XGBoost</span>
+              <span class="tag">Data Processing</span>
+              <span class="tag">ML Pipeline</span>
+              <span class="tag">Visualization</span>
+            </div>
+          </article>
+        </a>
 
-        <article class="glass project-card">
-          <div class="project-type">Frontend Web Project</div>
-          <h3>NutriScan</h3>
-          <p>
-            Designed and developed a web-based prototype that makes nutritional information easier
-            to understand through clearer visual hierarchy, navigation and structured product pages.
-          </p>
-          <div class="meta">
-            <strong>My contribution:</strong> Frontend development in HTML, CSS and JavaScript,
-            homepage, navigation, search, product page structure and translation of user research into interface decisions.
-          </div>
-          <div class="tag-list">
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">Frontend</span>
-            <span class="tag">UI Design</span>
-          </div>
-          <div class="project-links">
-            <a class="text-link" href="https://github.com/ceciliestadekristensen/nutriscan-web-application" target="_blank" rel="noopener noreferrer">View Repository ↗</a>
-          </div>
-        </article>
+        <a class="project-card-link" href="projects/nutriscan.html">
+          <article class="glass project-card" data-preview="images/nutriscan-preview.png">
+            <div class="project-type">Frontend Web Project</div>
+            <h3>NutriScan</h3>
+            <p>
+              Designed and developed a web-based prototype that makes nutritional information easier
+              to understand through clearer visual hierarchy, navigation and structured product pages.
+            </p>
+            <div class="meta">
+              <strong>My contribution:</strong> Frontend development in HTML, CSS and JavaScript,
+              homepage, navigation, search, product page structure and translation of user research into interface decisions.
+            </div>
+            <div class="tag-list">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Frontend</span>
+              <span class="tag">UI Design</span>
+            </div>
+          </article>
+        </a>
 
-        <article class="glass project-card">
-          <div class="project-type">Group Project</div>
-          <h3>Social Engagement App</h3>
-          <p>
-            Developed an Android application concept aimed at helping students discover social events
-            through a personalized and accessible mobile experience.
-          </p>
-          <div class="meta">
-            <strong>My contribution:</strong> UI design and layout work, character selection interface,
-            timeline and calendar-related features, navigation improvements and collaboration on app structure and implementation.
-          </div>
-          <div class="tag-list">
-            <span class="tag">Java</span>
-            <span class="tag">Android Studio</span>
-            <span class="tag">XML</span>
-            <span class="tag">Mobile UI</span>
-            <span class="tag">Navigation</span>
-          </div>
-          <div class="project-links">
-            <a class="text-link" href="https://github.com/ceciliestadekristensen/social-engagement-through-interactive-design" target="_blank" rel="noopener noreferrer">View Repository ↗</a>
-          </div>
-        </article>
-        
-      <article class="glass project-card">
-        <div class="project-type">Individual Project</div>
-        <h3>AdopTree</h3>
-        <p>
-          Designed a high-fidelity mobile app prototype focused on tree adoption and environmental engagement,
-          exploring how user motivation, interface design and digital tools can support urban tree care.
-        </p>
-        <div class="meta">
-          <strong>My contribution:</strong> Full concept development, user flow design, interface design,
-          research translation and high-fidelity prototyping in Figma.
-        </div>
-        <div class="tag-list">
-          <span class="tag">Figma</span>
-          <span class="tag">UX/UI</span>
-          <span class="tag">Prototype</span>
-          <span class="tag">User Flow</span>
-          <span class="tag">Mobile Design</span>
-        </div>
-        <div class="project-links">
-          <a class="text-link" href="https://github.com/ceciliestadekristensen/AdopTree" target="_blank" rel="noopener noreferrer">View Repository ↗</a>
-        </div>
-      </article>
+        <a class="project-card-link" href="projects/social-engagement.html">
+          <article class="glass project-card" data-preview="images/social-preview.png">
+            <div class="project-type">Group Project</div>
+            <h3>Social Engagement App</h3>
+            <p>
+              Developed an Android application concept aimed at helping students discover social events
+              through a personalized and accessible mobile experience.
+            </p>
+            <div class="meta">
+              <strong>My contribution:</strong> UI design and layout work, character selection interface,
+              timeline and calendar-related features, navigation improvements and collaboration on app structure and implementation.
+            </div>
+            <div class="tag-list">
+              <span class="tag">Java</span>
+              <span class="tag">Android Studio</span>
+              <span class="tag">XML</span>
+              <span class="tag">Mobile UI</span>
+              <span class="tag">Navigation</span>
+            </div>
+          </article>
+        </a>
+
+        <a class="project-card-link" href="projects/adoptree.html">
+          <article class="glass project-card" data-preview="images/adoptree-preview.png">
+            <div class="project-type">Individual Project</div>
+            <h3>AdopTree</h3>
+            <p>
+              Designed a high-fidelity mobile app prototype focused on tree adoption and environmental engagement,
+              exploring how user motivation, interface design and digital tools can support urban tree care.
+            </p>
+            <div class="meta">
+              <strong>My contribution:</strong> Full concept development, user flow design, interface design,
+              research translation and high-fidelity prototyping in Figma.
+            </div>
+            <div class="tag-list">
+              <span class="tag">Figma</span>
+              <span class="tag">UX/UI</span>
+              <span class="tag">Prototype</span>
+              <span class="tag">User Flow</span>
+              <span class="tag">Mobile Design</span>
+            </div>
+          </article>
+        </a>
       </div>
     </section>
 
@@ -760,23 +810,23 @@
       <div class="glass highlights-box">
         <ul class="highlights-list">
           <li>
-            <span>Human-Centered AI Interaction - Emotion-Driven Human-AI Interaction</span>
+            <span>Human-Centered AI Interaction — Emotion-Driven Human-AI Interaction</span>
             <span class="result-grade">12</span>
           </li>
           <li>
-            <span>Development of Software - NutriScan</span>
+            <span>Development of Software — NutriScan</span>
             <span class="result-grade">10</span>
           </li>
           <li>
-            <span>Development of an Interactive Design - Social Engagement App</span>
+            <span>Development of an Interactive Design — Social Engagement App</span>
             <span class="result-grade">10</span>
           </li>
           <li>
-            <span>Development of Interactive Systems - Machine Learning Prediction Model</span>
+            <span>Development of Interactive Systems — Machine Learning Prediction Model</span>
             <span class="result-grade">10</span>
           </li>
           <li>
-            <span>Design and Evaluation of User Interfaces (DEB) - AdopTree</span>
+            <span>Design and Evaluation of User Interfaces (DEB) — AdopTree</span>
             <span class="result-grade">10</span>
           </li>
           <li>
@@ -791,8 +841,8 @@
       <h2 class="section-title">Contact</h2>
       <p class="section-intro">
         I am currently completing my master’s degree and will graduate in June 2026.
-        If you would like to connect regarding future full-time opportunities within frontend,
-        digital development or IT consulting, feel free to reach out.
+        If you would like to connect regarding future full-time opportunities within frontend development,
+        digital product development or IT consulting, feel free to reach out.
       </p>
 
       <div class="glass contact-box">
@@ -821,8 +871,32 @@
     </section>
   </main>
 
+  <div class="project-preview" id="projectPreview">
+    <img id="projectPreviewImg" src="" alt="Project preview">
+  </div>
+
   <footer>
     © Cecilie Städe Kristensen
   </footer>
+
+  <script>
+    const preview = document.getElementById("projectPreview");
+    const previewImg = document.getElementById("projectPreviewImg");
+    const cards = document.querySelectorAll(".project-card");
+
+    cards.forEach((card) => {
+      card.addEventListener("mouseenter", () => {
+        const img = card.dataset.preview;
+        if (img) {
+          previewImg.src = img;
+          preview.classList.add("visible");
+        }
+      });
+
+      card.addEventListener("mouseleave", () => {
+        preview.classList.remove("visible");
+      });
+    });
+  </script>
 </body>
 </html>
