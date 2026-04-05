@@ -316,6 +316,21 @@
       pointer-events: none;
     }
 
+    .project-card {
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      cursor: pointer;
+      height: 100%;
+      z-index: 2;
+    }
+
+    .project-card:hover,
+    .project-card:focus {
+      transform: translateY(-4px);
+      border-color: rgba(124, 58, 237, 0.35);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.32);
+      outline: none;
+    }
+
     .project-type,
     .card-label {
       color: #cdbdff;
@@ -375,23 +390,6 @@
 
     .text-link:hover {
       color: white;
-    }
-
-    .project-card-link {
-      display: block;
-      color: inherit;
-    }
-
-    .project-card {
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-      cursor: pointer;
-      height: 100%;
-    }
-
-    .project-card-link:hover .project-card {
-      transform: translateY(-4px);
-      border-color: rgba(124, 58, 237, 0.35);
-      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.32);
     }
 
     .project-preview {
@@ -603,117 +601,107 @@
       </p>
 
       <div class="projects-grid">
-        <a class="project-card-link" href="projects/emotion-ai.html">
-          <article class="glass project-card" data-preview="images/emotion-preview.png">
-            <div class="project-type">Individual Project</div>
-            <h3>Emotion-Driven Human-AI Interaction</h3>
-            <p>
-              Built a real-time interactive system combining a Unity interface, a Python backend
-              and LLM-based response generation. The project explored how emotionally aware AI
-              interactions can be designed and implemented across multiple system components.
-            </p>
-            <div class="meta">
-              <strong>What I worked on:</strong> Unity frontend, Python backend logic,
-              API communication, LLM integration and overall system architecture.
-            </div>
-            <div class="tag-list">
-              <span class="tag">Unity</span>
-              <span class="tag">Python</span>
-              <span class="tag">LLM</span>
-              <span class="tag">API Integration</span>
-              <span class="tag">Interaction Design</span>
-            </div>
-          </article>
-        </a>
+        <article class="glass project-card" data-preview="images/emotion-preview.png" data-link="projects/emotion-ai.html" tabindex="0">
+          <div class="project-type">Individual Project</div>
+          <h3>Emotion-Driven Human-AI Interaction</h3>
+          <p>
+            Built a real-time interactive system combining a Unity interface, a Python backend
+            and LLM-based response generation. The project explored how emotionally aware AI
+            interactions can be designed and implemented across multiple system components.
+          </p>
+          <div class="meta">
+            <strong>What I worked on:</strong> Unity frontend, Python backend logic,
+            API communication, LLM integration and overall system architecture.
+          </div>
+          <div class="tag-list">
+            <span class="tag">Unity</span>
+            <span class="tag">Python</span>
+            <span class="tag">LLM</span>
+            <span class="tag">API Integration</span>
+            <span class="tag">Interaction Design</span>
+          </div>
+        </article>
 
-        <a class="project-card-link" href="projects/machine-learning.html">
-          <article class="glass project-card" data-preview="images/ml-preview.png">
-            <div class="project-type">Group Project</div>
-            <h3>Machine Learning Prediction Model</h3>
-            <p>
-              Developed a machine learning solution in collaboration with Bluestar PLM to support
-              intelligent data entry by predicting relevant values based on historical patterns.
-              The project focused on translating domain-specific data into a practical prediction pipeline.
-            </p>
-            <div class="meta">
-              <strong>My contribution:</strong> Label encoding, preprocessing, XGBoost integration,
-              pipeline development, visualization and communication of results to external stakeholders.
-            </div>
-            <div class="tag-list">
-              <span class="tag">Python</span>
-              <span class="tag">XGBoost</span>
-              <span class="tag">Data Processing</span>
-              <span class="tag">ML Pipeline</span>
-              <span class="tag">Visualization</span>
-            </div>
-          </article>
-        </a>
+        <article class="glass project-card" data-preview="images/ml-preview.png" data-link="projects/machine-learning.html" tabindex="0">
+          <div class="project-type">Group Project</div>
+          <h3>Machine Learning Prediction Model</h3>
+          <p>
+            Developed a machine learning solution in collaboration with Bluestar PLM to support
+            intelligent data entry by predicting relevant values based on historical patterns.
+            The project focused on translating domain-specific data into a practical prediction pipeline.
+          </p>
+          <div class="meta">
+            <strong>My contribution:</strong> Label encoding, preprocessing, XGBoost integration,
+            pipeline development, visualization and communication of results to external stakeholders.
+          </div>
+          <div class="tag-list">
+            <span class="tag">Python</span>
+            <span class="tag">XGBoost</span>
+            <span class="tag">Data Processing</span>
+            <span class="tag">ML Pipeline</span>
+            <span class="tag">Visualization</span>
+          </div>
+        </article>
 
-        <a class="project-card-link" href="projects/nutriscan.html">
-          <article class="glass project-card" data-preview="images/nutriscan-preview.png">
-            <div class="project-type">Frontend Web Project</div>
-            <h3>NutriScan</h3>
-            <p>
-              Designed and developed a web-based prototype that makes nutritional information easier
-              to understand through clearer visual hierarchy, navigation and structured product pages.
-            </p>
-            <div class="meta">
-              <strong>My contribution:</strong> Frontend development in HTML, CSS and JavaScript,
-              homepage, navigation, search, product page structure and translation of user research into interface decisions.
-            </div>
-            <div class="tag-list">
-              <span class="tag">HTML</span>
-              <span class="tag">CSS</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">Frontend</span>
-              <span class="tag">UI Design</span>
-            </div>
-          </article>
-        </a>
+        <article class="glass project-card" data-preview="images/nutriscan-preview.png" data-link="projects/nutriscan.html" tabindex="0">
+          <div class="project-type">Frontend Web Project</div>
+          <h3>NutriScan</h3>
+          <p>
+            Designed and developed a web-based prototype that makes nutritional information easier
+            to understand through clearer visual hierarchy, navigation and structured product pages.
+          </p>
+          <div class="meta">
+            <strong>My contribution:</strong> Frontend development in HTML, CSS and JavaScript,
+            homepage, navigation, search, product page structure and translation of user research into interface decisions.
+          </div>
+          <div class="tag-list">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Frontend</span>
+            <span class="tag">UI Design</span>
+          </div>
+        </article>
 
-        <a class="project-card-link" href="projects/social-engagement.html">
-          <article class="glass project-card" data-preview="images/social-preview.png">
-            <div class="project-type">Group Project</div>
-            <h3>Social Engagement App</h3>
-            <p>
-              Developed an Android application concept aimed at helping students discover social events
-              through a personalized and accessible mobile experience.
-            </p>
-            <div class="meta">
-              <strong>My contribution:</strong> UI design and layout work, character selection interface,
-              timeline and calendar-related features, navigation improvements and collaboration on app structure and implementation.
-            </div>
-            <div class="tag-list">
-              <span class="tag">Java</span>
-              <span class="tag">Android Studio</span>
-              <span class="tag">XML</span>
-              <span class="tag">Mobile UI</span>
-              <span class="tag">Navigation</span>
-            </div>
-          </article>
-        </a>
+        <article class="glass project-card" data-preview="images/social-preview.png" data-link="projects/social-engagement.html" tabindex="0">
+          <div class="project-type">Group Project</div>
+          <h3>Social Engagement App</h3>
+          <p>
+            Developed an Android application concept aimed at helping students discover social events
+            through a personalized and accessible mobile experience.
+          </p>
+          <div class="meta">
+            <strong>My contribution:</strong> UI design and layout work, character selection interface,
+            timeline and calendar-related features, navigation improvements and collaboration on app structure and implementation.
+          </div>
+          <div class="tag-list">
+            <span class="tag">Java</span>
+            <span class="tag">Android Studio</span>
+            <span class="tag">XML</span>
+            <span class="tag">Mobile UI</span>
+            <span class="tag">Navigation</span>
+          </div>
+        </article>
 
-        <a class="project-card-link" href="projects/adoptree.html">
-          <article class="glass project-card" data-preview="images/adoptree-preview.png">
-            <div class="project-type">Individual Project</div>
-            <h3>AdopTree</h3>
-            <p>
-              Designed a high-fidelity mobile app prototype focused on tree adoption and environmental engagement,
-              exploring how user motivation, interface design and digital tools can support urban tree care.
-            </p>
-            <div class="meta">
-              <strong>My contribution:</strong> Full concept development, user flow design, interface design,
-              research translation and high-fidelity prototyping in Figma.
-            </div>
-            <div class="tag-list">
-              <span class="tag">Figma</span>
-              <span class="tag">UX/UI</span>
-              <span class="tag">Prototype</span>
-              <span class="tag">User Flow</span>
-              <span class="tag">Mobile Design</span>
-            </div>
-          </article>
-        </a>
+        <article class="glass project-card" data-preview="images/adoptree-preview.png" data-link="projects/adoptree.html" tabindex="0">
+          <div class="project-type">Individual Project</div>
+          <h3>AdopTree</h3>
+          <p>
+            Designed a high-fidelity mobile app prototype focused on tree adoption and environmental engagement,
+            exploring how user motivation, interface design and digital tools can support urban tree care.
+          </p>
+          <div class="meta">
+            <strong>My contribution:</strong> Full concept development, user flow design, interface design,
+            research translation and high-fidelity prototyping in Figma.
+          </div>
+          <div class="tag-list">
+            <span class="tag">Figma</span>
+            <span class="tag">UX/UI</span>
+            <span class="tag">Prototype</span>
+            <span class="tag">User Flow</span>
+            <span class="tag">Mobile Design</span>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -885,16 +873,31 @@
     const cards = document.querySelectorAll(".project-card");
 
     cards.forEach((card) => {
+      const projectLink = card.dataset.link;
+      const previewImage = card.dataset.preview;
+
       card.addEventListener("mouseenter", () => {
-        const img = card.dataset.preview;
-        if (img) {
-          previewImg.src = img;
+        if (previewImage) {
+          previewImg.src = previewImage;
           preview.classList.add("visible");
         }
       });
 
       card.addEventListener("mouseleave", () => {
         preview.classList.remove("visible");
+      });
+
+      card.addEventListener("click", () => {
+        if (projectLink) {
+          window.location.href = projectLink;
+        }
+      });
+
+      card.addEventListener("keydown", (event) => {
+        if ((event.key === "Enter" || event.key === " ") && projectLink) {
+          event.preventDefault();
+          window.location.href = projectLink;
+        }
       });
     });
   </script>
