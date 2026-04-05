@@ -36,7 +36,7 @@ Frontend web prototype focused on nutritional information, usability and interfa
 Android application concept focused on event discovery and interactive mobile design.
 
 ### AdopTree
-A mobile application concept focused on tree adoption and environmental engagement,
+A mobile application concept focused on tree adoption and environmental engagement.
 
 ## Technologies Used in the Portfolio
 
