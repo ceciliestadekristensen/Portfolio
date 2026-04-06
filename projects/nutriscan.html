@@ -75,7 +75,7 @@
 
     .hero-image {
       width: 100%;
-      max-width: 560px;
+      max-width: 500px;
       display: block;
       margin: 2rem auto;
       border-radius: 18px;
@@ -115,16 +115,37 @@
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
       margin-top: 1rem;
     }
 
     .gallery img {
       width: 100%;
+      height: 240px;
+      object-fit: contain;
       border-radius: 16px;
       border: 1px solid rgba(148, 163, 184, 0.1);
       background: rgba(255,255,255,0.03);
+      padding: 0.5rem;
+    }
+
+    @media (max-width: 700px) {
+      .project-page {
+        padding: 1.25rem;
+      }
+
+      .hero-image {
+        max-width: 100%;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery img {
+        height: auto;
+      }
     }
   </style>
 </head>
@@ -135,11 +156,11 @@
     <div class="project-page">
       <h1>NutriScan</h1>
       <p class="lead">
-        A high-fidelity mobile app prototype focused on tree adoption and environmental engagement,
-        exploring how user motivation, interface design and digital tools can support urban tree care.
+        A frontend web prototype designed to make nutritional information easier to understand through clearer
+        structure, visual hierarchy and a more accessible browsing experience.
       </p>
 
-      <img class="hero-image" src="https://raw.githubusercontent.com/ceciliestadekristensen/nutriscan-web-application/main/demo/nutriscan.gif" alt="NutriScan preview">
+      <img class="hero-image" src="https://raw.githubusercontent.com/ceciliestadekristensen/nutriscan-web-application/main/demo/nutriscan.gif" alt="NutriScan demo GIF">
 
       <div class="info-grid">
         <div class="info-card">
@@ -148,42 +169,42 @@
         </div>
         <div class="info-card">
           <span>Tools</span>
-          Figma, Miro
+          HTML, CSS, JavaScript
         </div>
         <div class="info-card">
           <span>Focus</span>
-          UX/UI, user flow, prototyping
+          Frontend development, UI design, usability
         </div>
         <div class="info-card">
           <span>Repository</span>
-          <a href="https://github.com/ceciliestadekristensen/AdopTree" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
+          <a href="https://github.com/ceciliestadekristensen/nutriscan-web-application" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
         </div>
       </div>
 
       <h2>About the project</h2>
       <p>
-        hsjkl
+        NutriScan was developed as a web-based prototype exploring how nutritional information can be presented
+        in a clearer and more user-friendly way. The project focused on improving how users browse products,
+        understand nutritional tables and navigate food-related information through a structured frontend interface.
       </p>
 
       <h2>My contribution</h2>
       <ul>
-        <li>Full concept development</li>
-        <li>User flow design</li>
-        <li>Interface and visual design</li>
-        <li>High-fidelity prototyping in Figma</li>
-        <li>Translation of research into interaction decisions</li>
+        <li>Frontend development in HTML, CSS and JavaScript</li>
+        <li>Homepage and navigation structure</li>
+        <li>Search functionality for predefined products</li>
+        <li>Product page design and layout consistency</li>
+        <li>Translation of user research into interface decisions</li>
       </ul>
 
       <h2>Highlights</h2>
       <div class="gallery">
-        <img src="../images/nutriscan-preview.png" alt="Homepage">
-        <img src="../images/redbull.png" alt="Product Page">
-        <img src="../images/booster.png" alt="Nutritional Layout">
-        <img src="../images/filters.png" alt="Filtering Concept">
+        <img src="../images/nutriscan-preview.png" alt="NutriScan homepage">
+        <img src="../images/redbull.png" alt="NutriScan product page">
+        <img src="../images/booster.png" alt="NutriScan nutritional layout">
+        <img src="../images/filters.png" alt="NutriScan filtering concept">
       </div>
     </div>
   </div>
 </body>
 </html>
-
-
