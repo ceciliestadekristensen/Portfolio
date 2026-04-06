@@ -224,39 +224,40 @@
       box-shadow: 0 6px 14px rgba(0,0,0,0.25);
     }
     
-        /* 🔍 Hover zoom */
     .image-zoom {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%) scale(0.9);
-      width: 520px;
+      transform: translate(-50%, -50%) scale(0.96);
+      
+      width: min(900px, 90vw);   /* ✅ meget større */
+      
       opacity: 0;
       pointer-events: none;
-      transition: 0.2s;
-      z-index: 10;
+      transition: 0.2s ease;
+      z-index: 100;
     }
-
+    
     .image-zoom-frame {
       background: #0b0b0d;
-      padding: 10px;
-      border-radius: 16px;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+      padding: 14px;             /* lidt mere luft */
+      border-radius: 18px;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.65);
     }
-
+    
     .image-zoom-display {
       aspect-ratio: 16/10;
       background: white;
-      border-radius: 10px;
+      border-radius: 12px;
       overflow: hidden;
     }
-
+    
     .image-zoom-display img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: contain;       /* ✅ vigtigt: ikke zoom */
     }
-
+    
     .gallery-image-wrap:hover .image-zoom {
       opacity: 1;
       transform: translate(-50%, -50%) scale(1);
@@ -362,6 +363,14 @@
               </div>
               <div class="monitor-stand"></div>
               <div class="monitor-base"></div>
+            </div>
+
+            <div class="image-zoom">
+              <div class="image-zoom-frame">
+                <div class="image-zoom-display">
+                  <img src="../images/nutriscan-preview.png" alt="NutriScan homepage enlarged">
+                </div>
+              </div>
             </div>
           </div>
           <div class="gallery-caption">
