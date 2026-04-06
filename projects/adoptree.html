@@ -75,7 +75,7 @@
 
     .hero-image {
       width: 100%;
-      max-height: 300px;
+      max-width: 360px;
       display: block;
       margin: 2rem auto;
       border-radius: 18px;
@@ -133,20 +133,58 @@
       box-shadow: 0 12px 30px rgba(0,0,0,0.25);
     }
 
-    .gallery-image-wrap {
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      background: rgba(255,255,255,0.02);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
+    .gallery-item:hover .phone-frame {
+      transform: translateY(-6px) scale(1.03);
     }
 
-    .gallery-item img {
+    .gallery-image-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.2rem 0;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .phone-frame {
+      width: 180px;
+      aspect-ratio: 9 / 19;
+      background: #0a0a0a;
+      border-radius: 32px;
+      padding: 10px;
+      position: relative;
+      box-shadow:
+        0 20px 40px rgba(0,0,0,0.4),
+        inset 0 0 0 2px rgba(255,255,255,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .phone-frame::before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40%;
+      height: 10px;
+      background: #000;
+      border-radius: 10px;
+      z-index: 2;
+    }
+
+    .phone-screen {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      border-radius: 22px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .phone-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .gallery-caption {
@@ -177,6 +215,10 @@
 
       .gallery {
         grid-template-columns: 1fr;
+      }
+
+      .phone-frame {
+        width: 170px;
       }
     }
   </style>
@@ -233,7 +275,11 @@
       <div class="gallery">
         <div class="gallery-item">
           <div class="gallery-image-wrap">
-            <img src="../images/adoptree-preview.png" alt="AdopTree main screen">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="../images/adoptree-preview.png" alt="AdopTree main screen">
+              </div>
+            </div>
           </div>
           <div class="gallery-caption">
             <strong>Main screen</strong>
@@ -243,7 +289,11 @@
 
         <div class="gallery-item">
           <div class="gallery-image-wrap">
-            <img src="../images/about.png" alt="AdopTree about screen">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="../images/about.png" alt="AdopTree about screen">
+              </div>
+            </div>
           </div>
           <div class="gallery-caption">
             <strong>About the concept</strong>
@@ -253,7 +303,11 @@
 
         <div class="gallery-item">
           <div class="gallery-image-wrap">
-            <img src="../images/map.png" alt="AdopTree map screen">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="../images/map.png" alt="AdopTree map screen">
+              </div>
+            </div>
           </div>
           <div class="gallery-caption">
             <strong>Tree map</strong>
@@ -263,7 +317,11 @@
 
         <div class="gallery-item">
           <div class="gallery-image-wrap">
-            <img src="../images/trees.png" alt="AdopTree My Trees screen">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="../images/trees.png" alt="AdopTree My Trees screen">
+              </div>
+            </div>
           </div>
           <div class="gallery-caption">
             <strong>My Trees</strong>
@@ -273,7 +331,11 @@
 
         <div class="gallery-item">
           <div class="gallery-image-wrap">
-            <img src="../images/check-in.png" alt="AdopTree check-in screen">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="../images/check-in.png" alt="AdopTree check-in screen">
+              </div>
+            </div>
           </div>
           <div class="gallery-caption">
             <strong>Check-in flow</strong>
@@ -283,7 +345,11 @@
 
         <div class="gallery-item">
           <div class="gallery-image-wrap">
-            <img src="../images/report.png" alt="AdopTree report screen">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="../images/report.png" alt="AdopTree report screen">
+              </div>
+            </div>
           </div>
           <div class="gallery-caption">
             <strong>AI health feedback</strong>
