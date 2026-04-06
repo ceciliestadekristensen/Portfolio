@@ -75,7 +75,7 @@
 
     .hero-image {
       width: 100%;
-      max-width: 560px;
+      max-width: 430px;
       display: block;
       margin: 2rem auto;
       border-radius: 18px;
@@ -115,16 +115,70 @@
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
       margin-top: 1rem;
     }
 
-    .gallery img {
-      width: 100%;
-      border-radius: 16px;
-      border: 1px solid rgba(148, 163, 184, 0.1);
+    .gallery-item {
       background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(148, 163, 184, 0.1);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+
+    .gallery-image-wrap {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      background: rgba(255,255,255,0.02);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-caption {
+      padding: 0.9rem 1rem 1rem;
+    }
+
+    .gallery-caption strong {
+      display: block;
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .gallery-caption span {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 700px) {
+      .project-page {
+        padding: 1.25rem;
+      }
+
+      .hero-image {
+        max-width: 100%;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -135,11 +189,11 @@
     <div class="project-page">
       <h1>AdopTree</h1>
       <p class="lead">
-        A high-fidelity mobile app prototype focused on tree adoption and environmental engagement,
-        exploring how user motivation, interface design and digital tools can support urban tree care.
+        A high-fidelity mobile app prototype designed to make urban tree care more accessible and engaging
+        through tree adoption, user motivation and a structured digital experience.
       </p>
 
-      <img class="hero-image" src="../images/adoptree-preview.png" alt="AdopTree preview">
+      <img class="hero-image" src="../demo/adoptree.gif" alt="AdopTree demo GIF">
 
       <div class="info-grid">
         <div class="info-card">
@@ -162,15 +216,15 @@
 
       <h2>About the project</h2>
       <p>
-        AdopTree is a high-fidelity mobile prototype developed to explore how a digital product can make
-        urban tree care more accessible, motivating and easy to understand. The concept combines tree adoption,
-        guided user flows and a future AI-based check-in feature.
+        AdopTree was developed as a high-fidelity mobile prototype exploring how a digital product can support
+        environmental engagement through tree adoption and guided interaction. The concept focuses on helping users
+        adopt nearby trees, monitor their condition and stay motivated through a simple and accessible mobile experience.
       </p>
 
       <h2>My contribution</h2>
       <ul>
-        <li>Full concept development</li>
-        <li>User flow design</li>
+        <li>Full concept development and product structure</li>
+        <li>User journey and flow design</li>
         <li>Interface and visual design</li>
         <li>High-fidelity prototyping in Figma</li>
         <li>Translation of research into interaction decisions</li>
@@ -178,10 +232,65 @@
 
       <h2>Highlights</h2>
       <div class="gallery">
-        <img src="../images/main.png" alt="AdopTree main screen">
-        <img src="../images/map.png" alt="AdopTree map screen">
-        <img src="../images/trees.png" alt="AdopTree my Trees">
-        <img src="../images/check-in.png" alt="AdopTree check-in screen">
+        <div class="gallery-item">
+          <div class="gallery-image-wrap">
+            <img src="../images/main.png" alt="AdopTree main screen">
+          </div>
+          <div class="gallery-caption">
+            <strong>Main screen</strong>
+            <span>Entry point introducing the concept and guiding users into the adoption flow.</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-image-wrap">
+            <img src="../images/about.png" alt="AdopTree about screen">
+          </div>
+          <div class="gallery-caption">
+            <strong>About the concept</strong>
+            <span>Explains the purpose of the product and how users can contribute to urban tree care.</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-image-wrap">
+            <img src="../images/map.png" alt="AdopTree map screen">
+          </div>
+          <div class="gallery-caption">
+            <strong>Tree map</strong>
+            <span>Location-based overview of nearby trees with different statuses and adoption opportunities.</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-image-wrap">
+            <img src="../images/trees.png" alt="AdopTree My Trees screen">
+          </div>
+          <div class="gallery-caption">
+            <strong>My Trees</strong>
+            <span>Personal overview of adopted trees and their current health or care status.</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-image-wrap">
+            <img src="../images/check-in.png" alt="AdopTree check-in screen">
+          </div>
+          <div class="gallery-caption">
+            <strong>Check-in flow</strong>
+            <span>Prototype for uploading a photo and checking in on the condition of an adopted tree.</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-image-wrap">
+            <img src="../images/report.png" alt="AdopTree report screen">
+          </div>
+          <div class="gallery-caption">
+            <strong>AI health feedback</strong>
+            <span>Conceptual result screen showing diagnosis and recommendations based on tree check-ins.</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
