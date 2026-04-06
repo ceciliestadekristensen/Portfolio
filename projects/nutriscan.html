@@ -74,12 +74,13 @@
     }
 
     .hero-image {
-      width: 100%;
-      max-width: 480px;
+      height: 280px;
+      width: auto;
       display: block;
       margin: 2rem auto;
       border-radius: 18px;
       border: 1px solid rgba(148, 163, 184, 0.14);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
     }
 
     .info-grid {
@@ -133,21 +134,94 @@
       box-shadow: 0 12px 30px rgba(0,0,0,0.25);
     }
 
+    .gallery-item:hover .monitor-frame {
+      transform: translateY(-4px) scale(1.02);
+    }
+
     .gallery-image-wrap {
       width: 100%;
-      aspect-ratio: 16 / 10;
-      background: rgba(255,255,255,0.02);
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      padding: 1.2rem 1rem 0.8rem;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .monitor-frame {
+      width: 100%;
+      max-width: 340px;
+      transition: transform 0.3s ease;
+    }
+
+    .monitor-screen {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      background: #0b0b0d;
+      border-radius: 14px;
+      padding: 10px;
+      position: relative;
+      box-shadow:
+        0 18px 35px rgba(0,0,0,0.38),
+        inset 0 0 0 2px rgba(255,255,255,0.04);
+    }
+
+    .monitor-screen::before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.18);
+      z-index: 2;
+    }
+
+    .monitor-display {
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      border-radius: 8px;
       overflow: hidden;
     }
 
-    .gallery-item img {
+    .monitor-display img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+    }
+
+    .monitor-stand {
+      width: 90px;
+      height: 14px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, #262a33, #11151d);
+      border-radius: 0 0 14px 14px;
+      position: relative;
+    }
+
+    .monitor-stand::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 22px;
+      height: 32px;
+      background: linear-gradient(180deg, #2a313d, #151922);
+      border-radius: 0 0 8px 8px;
+      z-index: -1;
+    }
+
+    .monitor-base {
+      width: 130px;
+      height: 10px;
+      margin: 8px auto 0;
+      background: linear-gradient(180deg, #303846, #171c24);
+      border-radius: 999px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.25);
     }
 
     .gallery-caption {
@@ -173,11 +247,15 @@
       }
 
       .hero-image {
-        max-width: 100%;
+        height: 220px;
       }
 
       .gallery {
         grid-template-columns: 1fr;
+      }
+
+      .monitor-frame {
+        max-width: 100%;
       }
     }
   </style>
@@ -234,7 +312,15 @@
       <div class="gallery">
         <div class="gallery-item">
           <div class="gallery-image-wrap">
-            <img src="../images/nutriscan-preview.png" alt="NutriScan homepage">
+            <div class="monitor-frame">
+              <div class="monitor-screen">
+                <div class="monitor-display">
+                  <img src="../images/nutriscan-preview.png" alt="NutriScan homepage">
+                </div>
+              </div>
+              <div class="monitor-stand"></div>
+              <div class="monitor-base"></div>
+            </div>
           </div>
           <div class="gallery-caption">
             <strong>Homepage overview</strong>
@@ -244,17 +330,15 @@
 
         <div class="gallery-item">
           <div class="gallery-image-wrap">
-            <img src="../images/redbull.png" alt="NutriScan Red Bull product page">
-          </div>
-          <div class="gallery-caption">
-            <strong>Nutritional information layout</strong>
-            <span>Focused layout for clearer reading of nutritional values and recommendations.</span>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <div class="gallery-image-wrap">
-            <img src="../images/booster.png" alt="NutriScan nutritional layout">
+            <div class="monitor-frame">
+              <div class="monitor-screen">
+                <div class="monitor-display">
+                  <img src="../images/redbull.png" alt="NutriScan Red Bull product page">
+                </div>
+              </div>
+              <div class="monitor-stand"></div>
+              <div class="monitor-base"></div>
+            </div>
           </div>
           <div class="gallery-caption">
             <strong>Product page</strong>
@@ -264,7 +348,33 @@
 
         <div class="gallery-item">
           <div class="gallery-image-wrap">
-            <img src="../images/filters.png" alt="NutriScan filtering concept">
+            <div class="monitor-frame">
+              <div class="monitor-screen">
+                <div class="monitor-display">
+                  <img src="../images/booster.png" alt="NutriScan nutritional layout">
+                </div>
+              </div>
+              <div class="monitor-stand"></div>
+              <div class="monitor-base"></div>
+            </div>
+          </div>
+          <div class="gallery-caption">
+            <strong>Nutritional information layout</strong>
+            <span>Focused layout for clearer reading of nutritional values and recommendations.</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-image-wrap">
+            <div class="monitor-frame">
+              <div class="monitor-screen">
+                <div class="monitor-display">
+                  <img src="../images/filters.png" alt="NutriScan filtering concept">
+                </div>
+              </div>
+              <div class="monitor-stand"></div>
+              <div class="monitor-base"></div>
+            </div>
           </div>
           <div class="gallery-caption">
             <strong>Filtering and user preferences</strong>
