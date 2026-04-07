@@ -254,6 +254,18 @@
       z-index: 100;
     }
 
+    .image-zoom.process-zoom {
+      width: min(980px, 96vw);
+    }
+    
+    .image-zoom.process-zoom .image-zoom-display {
+      aspect-ratio: 16 / 9;
+    }
+    
+    .image-zoom.process-zoom .image-zoom-display img {
+      object-fit: contain;
+    }
+
     .image-zoom-frame {
       background: #0b0b0d;
       padding: 12px;
@@ -432,7 +444,7 @@
               <img src="../images/process.png" alt="Development process">
             </div>
 
-            <div class="image-zoom">
+            <div class="image-zoom process-zoom">
               <div class="image-zoom-frame">
                 <div class="image-zoom-display">
                   <img src="../images/process.png" alt="Development process enlarged">
