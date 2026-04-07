@@ -242,6 +242,12 @@
       display: block;
     }
 
+    .image-zoom-display img.trim-hover {
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.08);
+    }
+
     .gallery-image-wrap:hover .image-zoom {
       opacity: 1;
       visibility: visible;
@@ -327,14 +333,14 @@
           <div class="gallery-image-wrap">
             <div class="phone-frame">
               <div class="phone-screen">
-                <img src="../images/final_implementation.png" alt="Character selection screen">
+                <img src="../images/social-preview.png" alt="Character selection screen">
               </div>
             </div>
 
             <div class="image-zoom">
               <div class="image-zoom-frame">
                 <div class="image-zoom-display">
-                  <img src="../images/final_implementation.png" alt="Character selection screen enlarged">
+                  <img class="trim-hover" src="../images/social-preview.png" alt="Character selection screen enlarged">
                 </div>
               </div>
             </div>
@@ -356,7 +362,7 @@
             <div class="image-zoom">
               <div class="image-zoom-frame">
                 <div class="image-zoom-display">
-                  <img src="../images/final_bongo.png" alt="Character details screen enlarged">
+                  <img class="trim-hover" src="../images/final_bongo.png" alt="Character details screen enlarged">
                 </div>
               </div>
             </div>
@@ -378,7 +384,7 @@
             <div class="image-zoom">
               <div class="image-zoom-frame">
                 <div class="image-zoom-display">
-                  <img src="../images/final_imple.png" alt="Timeline view screen enlarged">
+                  <img class="trim-hover" src="../images/final_imple.png" alt="Timeline view screen enlarged">
                 </div>
               </div>
             </div>
@@ -422,7 +428,7 @@
             <div class="image-zoom">
               <div class="image-zoom-frame">
                 <div class="image-zoom-display">
-                  <img src="../images/prototype_map.png" alt="Figma prototype of the map enlarged">
+                  <img class="trim-hover" src="../images/prototype_map.png" alt="Figma prototype of the map enlarged">
                 </div>
               </div>
             </div>
