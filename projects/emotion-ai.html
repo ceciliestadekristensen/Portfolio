@@ -268,6 +268,12 @@
       background: #fff;
     }
 
+    .image-zoom-display img.trim-sides {
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.08);
+    }
+
     .gallery-image-wrap:hover .image-zoom {
       opacity: 1;
       visibility: visible;
@@ -381,7 +387,7 @@
             <div class="image-zoom">
               <div class="image-zoom-frame">
                 <div class="image-zoom-display">
-                  <img src="../images/Unity_front.png" alt="Main interface enlarged">
+                  <img class="trim-sides" src="../images/Unity_front.png" alt="Main interface enlarged">
                 </div>
               </div>
             </div>
@@ -407,7 +413,7 @@
             <div class="image-zoom">
               <div class="image-zoom-frame">
                 <div class="image-zoom-display">
-                  <img src="../images/emotion-preview.png" alt="Thinking state enlarged">
+                  <img class="trim-sides" src="../images/emotion-preview.png" alt="Thinking state enlarged">
                 </div>
               </div>
             </div>
@@ -433,7 +439,7 @@
             <div class="image-zoom">
               <div class="image-zoom-frame">
                 <div class="image-zoom-display">
-                  <img src="../images/Unity_happy.png" alt="Happy state enlarged">
+                  <img class="trim-sides" src="../images/Unity_happy.png" alt="Happy state enlarged">
                 </div>
               </div>
             </div>
