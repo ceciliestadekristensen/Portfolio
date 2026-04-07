@@ -220,6 +220,47 @@
       .phone-frame {
         width: 170px;
       }
+            /* 🔍 Hover zoom (AdopTree) */
+      .image-zoom {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.95);
+      
+        width: min(420px, 85vw);
+      
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: 0.2s ease;
+        z-index: 50;
+      }
+      
+      .image-zoom-frame {
+        background: #0b0b0d;
+        padding: 10px;
+        border-radius: 20px;
+        box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+      }
+      
+      .image-zoom-display {
+        aspect-ratio: 9 / 19;
+        background: #fff;
+        border-radius: 14px;
+        overflow: hidden;
+      }
+      
+      .image-zoom-display img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* vigtigt = ikke zoom */
+      }
+      
+      .gallery-image-wrap:hover .image-zoom {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(-50%, -50%) scale(1);
+      }
     }
   </style>
 </head>
@@ -277,7 +318,16 @@
           <div class="gallery-image-wrap">
             <div class="phone-frame">
               <div class="phone-screen">
-                <img src="../images/adoptree-preview.png" alt="AdopTree main screen">
+                <img src="../images/adoptree-preview.png">
+              </div>
+            </div>
+          
+            <!-- HOVER PREVIEW -->
+            <div class="image-zoom">
+              <div class="image-zoom-frame">
+                <div class="image-zoom-display">
+                  <img src="../images/adoptree-preview.png">
+                </div>
               </div>
             </div>
           </div>
@@ -294,6 +344,15 @@
                 <img src="../images/about.png" alt="AdopTree about screen">
               </div>
             </div>
+         
+          <!-- HOVER PREVIEW -->
+          <div class="image-zoom">
+              <div class="image-zoom-frame">
+                <div class="image-zoom-display">
+                  <img src="../images/about.png">
+                </div>
+              </div>
+            </div>
           </div>
           <div class="gallery-caption">
             <strong>About the concept</strong>
@@ -306,6 +365,14 @@
             <div class="phone-frame">
               <div class="phone-screen">
                 <img src="../images/map.png" alt="AdopTree map screen">
+              </div>
+            </div>
+
+            <div class="image-zoom">
+              <div class="image-zoom-frame">
+                <div class="image-zoom-display">
+                  <img src="../images/map.png">
+                </div>
               </div>
             </div>
           </div>
@@ -322,6 +389,14 @@
                 <img src="../images/trees.png" alt="AdopTree My Trees screen">
               </div>
             </div>
+
+            <div class="image-zoom">
+              <div class="image-zoom-frame">
+                <div class="image-zoom-display">
+                  <img src="../images/trees.png">
+                </div>
+              </div>
+            </div>
           </div>
           <div class="gallery-caption">
             <strong>My Trees</strong>
@@ -336,6 +411,14 @@
                 <img src="../images/check-in.png" alt="AdopTree check-in screen">
               </div>
             </div>
+
+            <div class="image-zoom">
+              <div class="image-zoom-frame">
+                <div class="image-zoom-display">
+                  <img src="../images/check-in.png">
+                </div>
+              </div>
+            </div>
           </div>
           <div class="gallery-caption">
             <strong>Check-in flow</strong>
@@ -348,6 +431,14 @@
             <div class="phone-frame">
               <div class="phone-screen">
                 <img src="../images/report.png" alt="AdopTree report screen">
+              </div>
+            </div>
+
+            <div class="image-zoom">
+              <div class="image-zoom-frame">
+                <div class="image-zoom-display">
+                  <img src="../images/report.png">
+                </div>
               </div>
             </div>
           </div>
