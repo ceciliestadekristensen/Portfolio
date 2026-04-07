@@ -74,8 +74,8 @@
     }
 
     .hero-image {
-      width: 100%;
-      max-width: 560px;
+      height: 350px;
+      width: auto;
       display: block;
       margin: 2rem auto;
       border-radius: 18px;
@@ -115,16 +115,159 @@
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
       margin-top: 1rem;
     }
 
-    .gallery img {
-      width: 100%;
-      border-radius: 16px;
-      border: 1px solid rgba(148, 163, 184, 0.1);
+    .gallery-item {
       background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(148, 163, 184, 0.1);
+      border-radius: 18px;
+      overflow: visible;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+      z-index: 20;
+    }
+
+    .gallery-item:hover .phone-frame {
+      transform: translateY(-6px) scale(1.03);
+    }
+
+    .gallery-image-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.2rem 0;
+      background: rgba(255,255,255,0.02);
+      position: relative;
+    }
+
+    .phone-frame {
+      width: 180px;
+      aspect-ratio: 9 / 19;
+      background: #0a0a0a;
+      border-radius: 32px;
+      padding: 10px;
+      position: relative;
+      box-shadow:
+        0 20px 40px rgba(0,0,0,0.4),
+        inset 0 0 0 2px rgba(255,255,255,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .phone-frame::before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40%;
+      height: 10px;
+      background: #000;
+      border-radius: 10px;
+      z-index: 2;
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      border-radius: 22px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .phone-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-caption {
+      padding: 0.9rem 1rem 1rem;
+    }
+
+    .gallery-caption strong {
+      display: block;
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .gallery-caption span {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .image-zoom {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.95);
+      width: min(350px, 70vw);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: 0.2s ease;
+      z-index: 50;
+    }
+
+    .image-zoom-frame {
+      background: #0b0b0d;
+      padding: 10px;
+      border-radius: 20px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+    }
+
+    .image-zoom-display {
+      aspect-ratio: 9 / 19;
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .image-zoom-display img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .gallery-image-wrap:hover .image-zoom {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    @media (max-width: 700px) {
+      .project-page {
+        padding: 1.25rem;
+      }
+
+      .hero-image {
+        max-width: 100%;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .phone-frame {
+        width: 170px;
+      }
+
+      .image-zoom {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -135,11 +278,11 @@
     <div class="project-page">
       <h1>Social Engagement App</h1>
       <p class="lead">
-        A high-fidelity mobile app prototype focused on tree adoption and environmental engagement,
-        exploring how user motivation, interface design and digital tools can support urban tree care.
+        A mobile application concept designed to help students discover social events through a personalized,
+        interactive and accessible experience.
       </p>
 
-      <img class="hero-image" src="https://raw.githubusercontent.com/ceciliestadekristensen/social-engagement-through-interactive-design/main/demo/demo.gif" alt="Social Engagement App preview">
+      <img class="hero-image" src="../demo/demo (1).gif" alt="Social Engagement App demo GIF">
 
       <div class="info-grid">
         <div class="info-card">
@@ -148,42 +291,149 @@
         </div>
         <div class="info-card">
           <span>Tools</span>
-          Figma, Miro
+          Java, Android Studio, XML
         </div>
         <div class="info-card">
           <span>Focus</span>
-          UX/UI, user flow, prototyping
+          Mobile UI, navigation, interaction design
         </div>
         <div class="info-card">
           <span>Repository</span>
-          <a href="https://github.com/ceciliestadekristensen/social-engagement" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
+          <a href="https://github.com/ceciliestadekristensen/social-engagement-through-interactive-design" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
         </div>
       </div>
 
       <h2>About the project</h2>
       <p>
-        ...
+        This project explored how mobile interaction design and Human-Computer Interaction can support
+        students, especially newcomers, in discovering social activities that match their interests.
+        The concept used a character-driven approach to guide users toward relevant events, locations
+        and experiences in Aalborg through a more engaging and accessible mobile flow.
       </p>
 
       <h2>My contribution</h2>
       <ul>
-        <li>Full concept development</li>
-        <li>User flow design</li>
-        <li>Interface and visual design</li>
-        <li>High-fidelity prototyping in Figma</li>
-        <li>Translation of research into interaction decisions</li>
+        <li>Contributed to the visual style and user experience</li>
+        <li>Worked on layout and interface structure</li>
+        <li>Helped shape the character selection experience</li>
+        <li>Implemented parts of the timeline view for event browsing</li>
+        <li>Worked on parts of the calendar-related functionality</li>
+        <li>Contributed to character selection logic and UI components</li>
       </ul>
 
       <h2>Highlights</h2>
       <div class="gallery">
-        <img src="../images/final_implementation.png" alt="Character Selection">
-        <img src="../images/final_bongo.png" alt="Character Details">
-        <img src="../images/final_imple.png" alt="Timeline">
-        <img src="../images/final_calender.png" alt="Calender">
+        <div class="gallery-item">
+          <div class="gallery-image-wrap">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="../images/final_implementation.png" alt="Character selection screen">
+              </div>
+            </div>
+
+            <div class="image-zoom">
+              <div class="image-zoom-frame">
+                <div class="image-zoom-display">
+                  <img src="../images/final_implementation.png" alt="Character selection screen enlarged">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-caption">
+            <strong>Character selection</strong>
+            <span>Entry point where users choose a character-driven path based on interests and preferences.</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-image-wrap">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="../images/final_bongo.png" alt="Character details screen">
+              </div>
+            </div>
+
+            <div class="image-zoom">
+              <div class="image-zoom-frame">
+                <div class="image-zoom-display">
+                  <img src="../images/final_bongo.png" alt="Character details screen enlarged">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-caption">
+            <strong>Character details</strong>
+            <span>Detailed character view designed to make the experience more personal and engaging.</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-image-wrap">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="../images/final_imple.png" alt="Timeline view screen">
+              </div>
+            </div>
+
+            <div class="image-zoom">
+              <div class="image-zoom-frame">
+                <div class="image-zoom-display">
+                  <img src="../images/final_imple.png" alt="Timeline view screen enlarged">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-caption">
+            <strong>Timeline view</strong>
+            <span>Event overview helping users discover activities in a clear and structured way.</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-image-wrap">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="../images/final_calender.png" alt="Calendar view screen">
+              </div>
+            </div>
+
+            <div class="image-zoom">
+              <div class="image-zoom-frame">
+                <div class="image-zoom-display">
+                  <img src="../images/final_calender.png" alt="Calendar view screen enlarged">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-caption">
+            <strong>Calendar view</strong>
+            <span>Calendar-based overview supporting planning and easier navigation between upcoming events.</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-image-wrap">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="../images/prototype_map.png" alt="Figma prototype of the map">
+              </div>
+            </div>
+
+            <div class="image-zoom">
+              <div class="image-zoom-frame">
+                <div class="image-zoom-display">
+                  <img src="../images/prototype_map.png" alt="Figma prototype of the map enlarged">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-caption">
+            <strong>Figma Prototype of the Map</strong>
+            <span>Figma prototype of the map, which was not implemented due to time constraints.</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </body>
 </html>
-
-
