@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Emotion Driven Human-AI Interaction | Cecilie Städe Kristensen</title>
+  <title>Emotion-Driven Human-AI Interaction | Cecilie Städe Kristensen</title>
   <style>
     :root {
       --bg: #07111f;
@@ -74,12 +74,13 @@
     }
 
     .hero-image {
-      width: 100%;
-      max-width: 560px;
+      height: 280px;
+      width: auto;
       display: block;
       margin: 2rem auto;
       border-radius: 18px;
       border: 1px solid rgba(148, 163, 184, 0.14);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
     }
 
     .info-grid {
@@ -115,16 +116,201 @@
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.2rem;
       margin-top: 1rem;
     }
 
-    .gallery img {
-      width: 100%;
-      border-radius: 16px;
-      border: 1px solid rgba(148, 163, 184, 0.1);
+    .gallery-item {
       background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(148, 163, 184, 0.1);
+      border-radius: 18px;
+      overflow: visible;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+      z-index: 20;
+    }
+
+    .gallery-item:hover .monitor-frame {
+      transform: translateY(-4px) scale(1.02);
+    }
+
+    .gallery-image-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.2rem 1rem 0.8rem;
+      background: rgba(255,255,255,0.02);
+      position: relative;
+    }
+
+    .monitor-frame {
+      width: 100%;
+      max-width: 340px;
+      transition: transform 0.3s ease;
+    }
+
+    .monitor-screen {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      background: #0b0b0d;
+      border-radius: 14px;
+      padding: 10px;
+      position: relative;
+      box-shadow:
+        0 18px 35px rgba(0,0,0,0.38),
+        inset 0 0 0 2px rgba(255,255,255,0.04);
+    }
+
+    .monitor-screen::before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.18);
+      z-index: 2;
+    }
+
+    .monitor-display {
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .monitor-display img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      background: #fff;
+    }
+
+    .monitor-stand {
+      width: 90px;
+      height: 14px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, #262a33, #11151d);
+      border-radius: 0 0 14px 14px;
+      position: relative;
+    }
+
+    .monitor-stand::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 22px;
+      height: 32px;
+      background: linear-gradient(180deg, #2a313d, #151922);
+      border-radius: 0 0 8px 8px;
+      z-index: -1;
+    }
+
+    .monitor-base {
+      width: 130px;
+      height: 10px;
+      margin: 8px auto 0;
+      background: linear-gradient(180deg, #303846, #171c24);
+      border-radius: 999px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+    }
+
+    .image-zoom {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.96);
+      width: min(760px, 88vw);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+      z-index: 100;
+    }
+
+    .image-zoom-frame {
+      background: #0b0b0d;
+      padding: 12px;
+      border-radius: 16px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+      border: 1px solid rgba(148, 163, 184, 0.14);
+    }
+
+    .image-zoom-display {
+      aspect-ratio: 16 / 10;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-zoom-display img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #fff;
+    }
+
+    .gallery-image-wrap:hover .image-zoom {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .gallery-caption {
+      padding: 0.9rem 1rem 1rem;
+    }
+
+    .gallery-caption strong {
+      display: block;
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .gallery-caption span {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 700px) {
+      .project-page {
+        padding: 1.25rem;
+      }
+
+      .hero-image {
+        height: 220px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .monitor-frame {
+        max-width: 100%;
+      }
+
+      .image-zoom {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -133,13 +319,13 @@
     <a class="back-link" href="../index.html#projects">← Back to portfolio</a>
 
     <div class="project-page">
-      <h1>Emotion Driven Human-AI Interaction</h1>
+      <h1>Emotion-Driven Human-AI Interaction</h1>
       <p class="lead">
-        A high-fidelity mobile app prototype focused on tree adoption and environmental engagement,
-        exploring how user motivation, interface design and digital tools can support urban tree care.
+        An interactive AI system exploring how emotionally aware responses can be created in real time
+        through the combination of Unity, Python and large language models.
       </p>
 
-      <img class="hero-image" src="../images/adoptree-preview.png" alt="AdopTree preview">
+      <img class="hero-image" src="https://raw.githubusercontent.com/ceciliestadekristensen/emotion-driven-human-ai-interaction/main/demo/demo.gif" alt="Emotion-Driven Human-AI Interaction demo GIF">
 
       <div class="info-grid">
         <div class="info-card">
@@ -148,41 +334,169 @@
         </div>
         <div class="info-card">
           <span>Tools</span>
-          Figma, Miro
+          Unity, Python, LLMs, API communication
         </div>
         <div class="info-card">
           <span>Focus</span>
-          UX/UI, user flow, prototyping
+          AI interaction, frontend-backend integration, real-time systems
         </div>
         <div class="info-card">
           <span>Repository</span>
-          <a href="https://github.com/ceciliestadekristensen/AdopTree" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
+          <a href="https://github.com/ceciliestadekristensen/emotion-driven-human-ai-interaction" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
         </div>
       </div>
 
       <h2>About the project</h2>
       <p>
-        ...
+        This project explored how AI systems can interpret and respond to human emotions in a more natural
+        and engaging way. The solution combined a Unity-based interface with a Python backend and
+        LLM-based response generation to create a real-time interaction flow between the user and the system.
+        The project focused on both implementation and interaction design, showing how multiple technologies
+        can be connected into one coherent user experience.
       </p>
 
       <h2>My contribution</h2>
       <ul>
-        <li>Full concept development</li>
-        <li>User flow design</li>
-        <li>Interface and visual design</li>
-        <li>High-fidelity prototyping in Figma</li>
-        <li>Translation of research into interaction decisions</li>
+        <li>Built the Unity-based interface and interaction flow</li>
+        <li>Worked on Python backend logic and system processing</li>
+        <li>Connected frontend and backend through API-based communication</li>
+        <li>Integrated LLM-based response generation</li>
+        <li>Designed and implemented emotionally aware interaction states</li>
       </ul>
 
       <h2>Highlights</h2>
       <div class="gallery">
-        <img src="../images/main.png" alt="Main screen">
-        <img src="../images/about.png" alt="AdopTree about screen">
-        <img src="../images/map.png" alt="AdopTree map screen">
-        <img src="../images/check-in.png" alt="Code">
+        <div class="gallery-item">
+          <div class="gallery-image-wrap">
+            <div class="monitor-frame">
+              <div class="monitor-screen">
+                <div class="monitor-display">
+                  <img src="../images/Unity_front.png" alt="Main interface">
+                </div>
+              </div>
+              <div class="monitor-stand"></div>
+              <div class="monitor-base"></div>
+            </div>
+
+            <div class="image-zoom">
+              <div class="image-zoom-frame">
+                <div class="image-zoom-display">
+                  <img src="../images/Unity_front.png" alt="Main interface enlarged">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-caption">
+            <strong>Main interface</strong>
+            <span>Unity-based interface used for real-time interaction between the user and the AI system.</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-image-wrap">
+            <div class="monitor-frame">
+              <div class="monitor-screen">
+                <div class="monitor-display">
+                  <img src="../images/Unity_thinking.png" alt="Thinking state">
+                </div>
+              </div>
+              <div class="monitor-stand"></div>
+              <div class="monitor-base"></div>
+            </div>
+
+            <div class="image-zoom">
+              <div class="image-zoom-frame">
+                <div class="image-zoom-display">
+                  <img src="../images/Unity_thinking.png" alt="Thinking state enlarged">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-caption">
+            <strong>Thinking state</strong>
+            <span>Intermediate feedback state showing how the system communicates processing and response generation.</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-image-wrap">
+            <div class="monitor-frame">
+              <div class="monitor-screen">
+                <div class="monitor-display">
+                  <img src="../images/Unity_happy.png" alt="Happy state">
+                </div>
+              </div>
+              <div class="monitor-stand"></div>
+              <div class="monitor-base"></div>
+            </div>
+
+            <div class="image-zoom">
+              <div class="image-zoom-frame">
+                <div class="image-zoom-display">
+                  <img src="../images/Unity_happy.png" alt="Happy state enlarged">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-caption">
+            <strong>Emotion-based feedback</strong>
+            <span>Example of how emotional state is reflected visually in the interface to support more natural interaction.</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-image-wrap">
+            <div class="monitor-frame">
+              <div class="monitor-screen">
+                <div class="monitor-display">
+                  <img src="../images/Unity_stressed.png" alt="Stressed state">
+                </div>
+              </div>
+              <div class="monitor-stand"></div>
+              <div class="monitor-base"></div>
+            </div>
+
+            <div class="image-zoom">
+              <div class="image-zoom-frame">
+                <div class="image-zoom-display">
+                  <img src="../images/Unity_stressed.png" alt="Stressed state enlarged">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-caption">
+            <strong>Alternative emotional response</strong>
+            <span>Another interface state showing how the AI interaction changes visually depending on the emotional output.</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-image-wrap">
+            <div class="monitor-frame">
+              <div class="monitor-screen">
+                <div class="monitor-display">
+                  <img src="../images/Unity_code.png" alt="Unity-Python integration">
+                </div>
+              </div>
+              <div class="monitor-stand"></div>
+              <div class="monitor-base"></div>
+            </div>
+
+            <div class="image-zoom">
+              <div class="image-zoom-frame">
+                <div class="image-zoom-display">
+                  <img src="../images/Unity_code.png" alt="Unity-Python integration enlarged">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-caption">
+            <strong>Unity-Python integration</strong>
+            <span>Technical view showing the connection between the Unity frontend and Python backend logic.</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </body>
 </html>
-
