@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AdopTree | Cecilie Städe Kristensen</title>
+  <title>QuizGen | Cecilie Städe Kristensen</title>
   <style>
     :root {
       --bg: #07111f;
@@ -277,47 +277,63 @@
     <a class="back-link" href="../index.html#projects">← Back to portfolio</a>
 
     <div class="project-page">
-      <h1>AdopTree</h1>
+      <h1>QuizGen</h1>
       <p class="lead">
-        A high-fidelity mobile app prototype designed to make urban tree care more accessible and engaging
-        through tree adoption, user motivation and a structured digital experience.
+        QuizGen is a proof-of-concept web system developed as part of the master thesis
+        <em>AI Generated Quizzes</em>. The system generates multiple-choice quiz candidates
+        from PDF-based teaching material using a local large language model, while keeping
+        teachers in control of selecting and validating the final quiz questions.
       </p>
 
-      <img class="hero-image" src="../demo/adoptree.gif" alt="AdopTree demo GIF">
+      <img class="hero-image" src="../demo/quizgen.gif" alt="QuizGen demo GIF">
 
       <div class="info-grid">
         <div class="info-card">
           <span>Type</span>
-          Individual project
+          Master thesis / group project
+        </div>
+        <div class="info-card">
+          <span>Product</span>
+          QuizGen
+        </div>
+        <div class="info-card">
+          <span>Thesis title</span>
+          AI Generated Quizzes
         </div>
         <div class="info-card">
           <span>Tools</span>
-          Figma, Miro
+          Python, FastAPI, HTML, JavaScript, Ollama
         </div>
         <div class="info-card">
           <span>Focus</span>
-          UX/UI, user flow, prototyping
-        </div>
+          LLM-based quiz generation, PDF processing, validation, teacher review
         <div class="info-card">
           <span>Repository</span>
-          <a href="https://github.com/ceciliestadekristensen/AdopTree" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
+          <a href="https://github.com/ceciliestadekristensen/speciale-quiz-gen" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
         </div>
       </div>
 
       <h2>About the project</h2>
       <p>
-        AdopTree was developed as a high-fidelity mobile prototype exploring how a digital product can support
-        environmental engagement through tree adoption and guided interaction. The concept focuses on helping users
-        adopt nearby trees, monitor their condition and stay motivated through a simple and accessible mobile experience.
+          QuizGen was developed to explore how a local LLM-based system can support teachers
+          in preparing multiple-choice quiz exercises from PDF-based teaching material. The system
+          allows teachers to upload material, choose an age group and page range, generate quiz
+          candidates, review the suggestions and select the final questions before starting the quiz.
+      </p>
+      <p>
+          The project was evaluated with teachers from the Asthma School for Children and Adolescents.
+          The focus was not to fully automate quiz creation, but to support preparation while keeping
+          teacher judgment and validation as an important part of the workflow.
       </p>
 
       <h2>My contribution</h2>
       <ul>
-        <li>Full concept development and product structure</li>
-        <li>User journey and flow design</li>
-        <li>Interface and visual design</li>
-        <li>High-fidelity prototyping in Figma</li>
-        <li>Translation of research into interaction decisions</li>
+        <li>Implemented the full software prototype</li>
+        <li>Built the HTML and JavaScript frontend</li>
+        <li>Developed the FastAPI backend and API endpoints</li>
+        <li>Implemented PDF text extraction and OCR fallback</li>
+        <li>Built the quiz generation pipeline using Ollama and a local LLM</li>
+        <li>Worked with prompt structure, age adaptation, validation logic and review flow</li>
       </ul>
 
       <h2>Highlights</h2>
