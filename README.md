@@ -4,12 +4,7 @@ This repository contains my personal portfolio website.
 
 ## About
 
-I am currently completing my master’s degree in Digitalisation and Application Development and expect to graduate in June 2026. My background combines frontend development, interaction design and technical problem-solving across web, mobile and intelligent systems.
-
-I am interested in full-time opportunities within:
-- Frontend development
-- Digital product development
-- IT consulting
+I have completed my master’s degree (Cand.IT) in Digitalisation and Application Development. My background combines frontend development, interaction design and technical problem-solving across web, mobile and AI-supported systems.
 
 ## Portfolio Sections
 
@@ -38,10 +33,22 @@ Android application concept focused on event discovery and interactive mobile de
 ### AdopTree
 A mobile application concept focused on tree adoption and environmental engagement.
 
-## Technologies Used in the Portfolio
+### QuizGen (Master Thesis)
+Web-based prototype generating quiz candidates from PDF material using a local LLM, developed in collaboration with Astmaskolen for Børn og Unge (Aalborg University Hospital).
+
+## Technologies Used
 
 - HTML
 - CSS
+- JavaScript
+- Python
+- FastAPI
+- Java
+- SQL
+- Unity
+- Android Studio
+- Figma
+- Machine Learning (XGBoost, LLM-based systems)
 
 ## Live Site
 
