@@ -327,13 +327,12 @@
     <div class="project-page">
       <h1>QuizGen</h1>
       <p class="lead">
-        QuizGen is a proof-of-concept web system developed as part of the master thesis
-        <em>AI Generated Quizzes</em>. The system generates multiple-choice quiz candidates
-        from PDF-based teaching material using a local large language model, while keeping
-        teachers in control of selecting and validating the final quiz questions.
-        The project was developed as a case collaboration with Astmaskolen for Børn og Unge
-        at Aalborg University Hospital. The school is a free educational offer for children and
-        adolescents aged 6 - 18 with asthma.
+        QuizGen generates age-appropriate multiple-choice quizzes from PDF-based teaching material
+        using a local large language model, while keeping teachers in control of selecting the final questions.
+        It started as my master thesis, <em>AI Generated Quizzes</em>, developed in collaboration with
+        Astmaskolen for Børn og Unge at Aalborg University Hospital, a free educational offer for children
+        and adolescents aged 6–18 with asthma. After graduating, I continued developing the system and
+        delivered it to Astmaskolen for use in their teaching.
       </p>
 
       <img class="hero-image" src="../demo/quizgen.gif" alt="QuizGen demo GIF">
@@ -341,11 +340,11 @@
       <div class="info-grid">
         <div class="info-card">
           <span>Type</span>
-          Master thesis / group project
+          Master thesis + continued development
         </div>
         <div class="info-card">
-          <span>Product</span>
-          QuizGen
+          <span>Status</span>
+          Delivered to Astmaskolen, 2026
         </div>
         <div class="info-card">
           <span>Thesis title</span>
@@ -353,11 +352,11 @@
         </div>
         <div class="info-card">
           <span>Tools</span>
-          Python, FastAPI, HTML, JavaScript, Ollama
+          Python, FastAPI, HTML, JavaScript, Ollama, Tesseract OCR
         </div>
         <div class="info-card">
           <span>Focus</span>
-          LLM-based quiz generation, PDF processing, validation, teacher review
+          LLM-based quiz generation, PDF processing, validation, teacher review and editing, deployment
         </div>
         <div class="info-card">
           <span>Repository</span>
@@ -370,7 +369,7 @@
           QuizGen was developed to explore how a local LLM-based system can support teachers
           in preparing multiple-choice quiz exercises from PDF-based teaching material. The system
           allows teachers to upload material, choose an age group and page range, generate quiz
-          candidates, review the suggestions and select the final questions before starting the quiz.
+          candidates, review the suggestions, edit them or add their own questions, and select the final questions before starting the quiz.
       </p>
       <p>
           The project was evaluated with teachers from the Asthma School for Children and Adolescents.
@@ -378,14 +377,32 @@
           teacher judgment and validation as an important part of the workflow.
       </p>
 
+      <h2>From thesis to delivery</h2>
+      <p>
+          After the thesis, the next challenge was getting the system into the hands of the teachers.
+          The hospital had no budget for hosting or paid AI services, and the teaching material should stay
+          on their own computers. I compared hosted AI services, cloud hosting and local installation,
+          and chose to keep the system fully local, with no running costs and no data leaving the computer.
+      </p>
+      <p>
+          To make a local setup realistic for non-technical users, I built one-click installers and start
+          scripts for Windows and Mac, removed system dependencies that are hard to install on Windows,
+          made sure the backend only listens on the local machine, added automatic cleanup of uploaded files,
+          and wrote a setup guide for staff and IT support.
+      </p>
+
       <h2>My contribution</h2>
       <ul>
-        <li>Implemented the full software prototype</li>
+        <li>Implemented the full system</li>
         <li>Built the HTML and JavaScript frontend</li>
         <li>Developed the FastAPI backend and API endpoints</li>
         <li>Implemented PDF text extraction and OCR fallback</li>
         <li>Built the quiz generation pipeline using Ollama and a local LLM</li>
         <li>Worked with prompt structure, age adaptation, validation logic and review flow</li>
+        <li>Built an editing flow so teachers can adjust generated questions and add their own</li>
+        <li>Designed color-coded answer options for all age groups</li>
+        <li>Packaged the system for delivery with one-click installers for Windows and Mac</li>
+        <li>Wrote setup documentation for staff and IT support</li>
       </ul>
 
       <h2>Highlights</h2>
@@ -437,43 +454,18 @@
             </div>
           </div>
           <div class="gallery-caption">
-            <strong>Quiz candidate review for younger children</strong>
+            <strong>Quiz candidate review</strong>
             <span>Generated and example-based questions shown as selectable candidates with color-based answer options.</span>
           </div>
         </div>
 
-        <div class="gallery-item">
-          <div class="gallery-image-wrap">
-            <div class="monitor-frame">
-              <div class="monitor-screen">
-                <div class="monitor-display">
-                  <img src="../images/quiz-hold-a-final.png" alt="QuizGen Hold A final quiz">
-                </div>
-              </div>
-              <div class="monitor-stand"></div>
-              <div class="monitor-base"></div>
-            </div>
-
-            <div class="image-zoom">
-              <div class="image-zoom-frame">
-                <div class="image-zoom-display">
-                  <img class="trim-sides" src="../images/quiz-hold-a-final.png" alt="QuizGen Hold A final quiz enlarged">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="gallery-caption">
-            <strong>Quiz candidate review for older children</strong>
-            <span>Question candidates shown with A, B and C answer options.</span>
-          </div>
-        </div>
 
         <div class="gallery-item">
           <div class="gallery-image-wrap">
             <div class="monitor-frame">
               <div class="monitor-screen">
                 <div class="monitor-display">
-                  <img src="../images/quiz-hold-b-final.png" alt="QuizGen Hold B final quiz">
+                  <img src="../images/quiz-hold-b-final.png" alt="QuizGen final quiz">
                 </div>
               </div>
               <div class="monitor-stand"></div>
@@ -489,7 +481,7 @@
             </div>
           </div>
           <div class="gallery-caption">
-            <strong>Final quiz view for Hold B</strong>
+            <strong>Final quiz view</strong>
             <span>Final selected quiz questions presented in a simple classroom-friendly format.</span>
           </div>
         </div>
