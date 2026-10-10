@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Malermester Jesper Lauritsen | Cecilie Städe Kristensen</title>
+  <style>
+    :root {
+      --bg: #07111f;
+      --surface: rgba(13, 23, 40, 0.86);
+      --border: rgba(148, 163, 184, 0.14);
+      --text: #e8eef8;
+      --muted: #a6b5cb;
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+      --radius: 22px;
+      --max-width: 1000px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background:
+        radial-gradient(circle at top left, rgba(124, 58, 237, 0.15), transparent 30%),
+        radial-gradient(circle at top right, rgba(56, 189, 248, 0.12), transparent 28%),
+        linear-gradient(180deg, #050a14 0%, #0b1422 100%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 2rem 0 4rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .back-link:hover {
+      color: var(--text);
+    }
+
+    .project-page {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2rem;
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1;
+    }
+
+    .lead {
+      color: var(--muted);
+      max-width: 760px;
+      font-size: 1.05rem;
+    }
+
+    .hero-image {
+      height: 310px;
+      width: auto;
+      display: block;
+      margin: 2rem auto;
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .info-card {
+      padding: 1rem;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .info-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 0.35rem;
+    }
+
+    h2 {
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.5rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .gallery-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(148, 163, 184, 0.1);
+      border-radius: 18px;
+      overflow: visible;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+      z-index: 20;
+    }
+
+    .gallery-item:hover .monitor-frame {
+      transform: translateY(-4px) scale(1.02);
+    }
+
+    .gallery-image-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.2rem 1rem 0.8rem;
+      background: rgba(255,255,255,0.02);
+      position: relative;
+    }
+
+    .monitor-frame {
+      width: 100%;
+      max-width: 340px;
+      transition: transform 0.3s ease;
+    }
+
+    .monitor-screen {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      background: #0b0b0d;
+      border-radius: 14px;
+      padding: 10px;
+      position: relative;
+      box-shadow:
+        0 18px 35px rgba(0,0,0,0.38),
+        inset 0 0 0 2px rgba(255,255,255,0.04);
+    }
+
+    .monitor-screen::before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.18);
+      z-index: 2;
+    }
+
+    .monitor-display {
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .monitor-display img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #fff;
+    }
+
+    .monitor-stand {
+      width: 90px;
+      height: 14px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, #262a33, #11151d);
+      border-radius: 0 0 14px 14px;
+      position: relative;
+    }
+
+    .monitor-stand::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 22px;
+      height: 32px;
+      background: linear-gradient(180deg, #2a313d, #151922);
+      border-radius: 0 0 8px 8px;
+      z-index: -1;
+    }
+
+    .monitor-base {
+      width: 130px;
+      height: 10px;
+      margin: 8px auto 0;
+      background: linear-gradient(180deg, #303846, #171c24);
+      border-radius: 999px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+    }
+
+    .image-zoom {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.96);
+      width: min(760px, 88vw);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+      z-index: 100;
+    }
+
+    .image-zoom-frame {
+      background: #0b0b0d;
+      padding: 12px;
+      border-radius: 16px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+      border: 1px solid rgba(148, 163, 184, 0.14);
+    }
+
+    .image-zoom-display {
+      aspect-ratio: 16 / 10;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-zoom-display img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #000;
+    }
+
+    .image-zoom-display img.trim-sides {
+      object-fit: contain;
+      object-position: center;
+      transform: scale(1.01);
+    }
+
+    .gallery-image-wrap:hover .image-zoom {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .gallery-caption {
+      padding: 0.9rem 1rem 1rem;
+    }
+
+    .gallery-caption strong {
+      display: block;
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .gallery-caption span {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 700px) {
+      .project-page {
+        padding: 1.25rem;
+      }
+
+      .hero-image {
+        height: 220px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .monitor-frame {
+        max-width: 100%;
+      }
+
+      .image-zoom {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a class="back-link" href="../index.html#projects">← Back to portfolio</a>
+
+    <div class="project-page">
+      <h1>Malermester Jesper Lauritsen</h1>
+      <p class="lead">
+        A website for a one-man painting business in Hjørring that until now only had a Facebook page.
+        I handled the whole process, from the first mockups and visual identity to code, content,
+        image editing and launch. The site is built to make it easy
+        to call or request a quote, and to show the painter's work through real before and after photos.
+      </p>
+
+      <img class="hero-image" src="../images/malermester-mobil.jpg" alt="The website on a phone">
+
+      <div class="info-grid">
+        <div class="info-card">
+          <span>Type</span>
+          Freelance client project
+        </div>
+        <div class="info-card">
+          <span>Status</span>
+          Live, 2026
+        </div>
+        <div class="info-card">
+          <span>Tools</span>
+          HTML, CSS, JavaScript, Figma, Cloudflare Pages, Web3Forms
+        </div>
+        <div class="info-card">
+          <span>Focus</span>
+          UX, responsive design, image editing, SEO, zero running costs
+        </div>
+        <div class="info-card">
+          <span>Website</span>
+          <a href="https://DIN-ADRESSE.pages.dev" target="_blank" rel="noopener noreferrer">Visit the site ↗</a>
+        </div>
+      </div>
+
+      <h2>About the project</h2>
+      <p>
+          The painter's customers mainly find him through word of mouth and Facebook, where his posts showed
+          great before and after photos but no clear way to request a quote. The goal was a simple, trustworthy
+          website that works well on a phone, presents his services and lets potential customers contact him directly.
+      </p>
+      <p>
+          I designed the pages in Figma and then built the site from scratch
+          in plain HTML, CSS and JavaScript without frameworks or a CMS.
+      </p>
+
+      <h2>Key decisions</h2>
+      <p>
+          As a small one-man business, the client did not want monthly costs. Instead of a hosted CMS, I built
+          the site as a static website deployed on Cloudflare Pages, which is free and updates automatically from GitHub.
+          The contact form uses a form service, so requests go straight to his inbox without a server. The only fixed cost is the domain.
+      </p>
+      <p>
+          Because new projects must be easy to add, all gallery and carousel content lives in one data file,
+          so a new project is added by placing the images in a folder and adding a few lines.
+      </p>
+
+      <h2>My contribution</h2>
+      <ul>
+        <li>Designed the site structure and pages in Figma</li>
+        <li>Built five responsive pages in HTML, CSS and JavaScript</li>
+        <li>Built a before and after carousel, a filterable gallery and a click-to-enlarge image viewer</li>
+        <li>Built an expandable FAQ and a contact form that sends directly to the client's email</li>
+        <li>Selected, cleaned up and optimized 50+ project photos</li>
+        <li>Wrote the page copy based on the client's own Facebook posts</li>
+        <li>Set up free hosting on Cloudflare Pages with automatic deploys from GitHub</li>
+        <li>Prepared the site for Google with page titles, descriptions and a sitemap</li>
+      </ul>
+
+      <h2>Highlights</h2>
+      <div class="gallery">
+        <div class="gallery-item">
+          <div class="gallery-image-wrap">
+            <div class="monitor-frame">
+              <div class="monitor-screen">
+                <div class="monitor-display">
+                  <img src="../images/malermester-forside.jpg" alt="Front page of the painter website">
+                </div>
+              </div>
+              <div class="monitor-stand"></div>
+              <div class="monitor-base"></div>
+            </div>
+            <div class="image-zoom">
+              <div class="image-zoom-frame">
+                <div class="image-zoom-display">
+                  <img class="trim-sides" src="../images/malermester-forside.jpg" alt="Front page of the painter website enlarged">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-caption">
+            <strong>Front page</strong>
+            <span>A clear entry point with phone number, a quote button and the key reasons to choose a one-man business.</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-image-wrap">
+            <div class="monitor-frame">
+              <div class="monitor-screen">
+                <div class="monitor-display">
+                  <img src="../images/malermester-karrusel.jpg" alt="Before and after carousel">
+                </div>
+              </div>
+              <div class="monitor-stand"></div>
+              <div class="monitor-base"></div>
+            </div>
+            <div class="image-zoom">
+              <div class="image-zoom-frame">
+                <div class="image-zoom-display">
+                  <img class="trim-sides" src="../images/malermester-karrusel.jpg" alt="Before and after carousel enlarged">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-caption">
+            <strong>Before and after carousel</strong>
+            <span>Ten real projects shown as before/after pairs, browsable with arrows, dots, keyboard and swipe.</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-image-wrap">
+            <div class="monitor-frame">
+              <div class="monitor-screen">
+                <div class="monitor-display">
+                  <img src="../images/malermester-galleri.jpg" alt="Gallery with category filters">
+                </div>
+              </div>
+              <div class="monitor-stand"></div>
+              <div class="monitor-base"></div>
+            </div>
+            <div class="image-zoom">
+              <div class="image-zoom-frame">
+                <div class="image-zoom-display">
+                  <img class="trim-sides" src="../images/malermester-galleri.jpg" alt="Gallery with category filters enlarged">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-caption">
+            <strong>Gallery with filters</strong>
+            <span>Projects filtered by indoor, outdoor, wallpaper and commercial work, with several image pairs per project.</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-image-wrap">
+            <div class="monitor-frame">
+              <div class="monitor-screen">
+                <div class="monitor-display">
+                  <img src="../images/malermester-kontakt.jpg" alt="Contact page with form">
+                </div>
+              </div>
+              <div class="monitor-stand"></div>
+              <div class="monitor-base"></div>
+            </div>
+            <div class="image-zoom">
+              <div class="image-zoom-frame">
+                <div class="image-zoom-display">
+                  <img class="trim-sides" src="../images/malermester-kontakt.jpg" alt="Contact page with form enlarged">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-caption">
+            <strong>Contact form</strong>
+            <span>A form that sends requests directly to the painter's inbox, with a Danish confirmation shown on the page.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
