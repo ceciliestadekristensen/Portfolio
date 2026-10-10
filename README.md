@@ -50,9 +50,6 @@ Web-based prototype generating quiz candidates from PDF material using a local L
 - Figma
 - Machine Learning (XGBoost, LLM-based systems)
 
-## Live Site
-
-Hosted via Netlify.
 
 ## Contact
 
